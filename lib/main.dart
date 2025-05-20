@@ -21,8 +21,39 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Widget> gridItems = List.generate(
+    12,
+        (index) => Container(
+      key: ValueKey(index),
+      height: 80,
+      width: 175,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        color: Colors.black26,
+      ),
+      child: Text(
+        'Item $index',
+        style: TextStyle(fontSize: 18),
+      ),
+    ),
+  );
+
+  void _onReorder(int oldIndex, int newIndex) {
+    setState(() {
+      final item = gridItems.removeAt(oldIndex);
+      gridItems.insert(newIndex, item);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,18 +161,15 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                children: List.generate(10, (index) {
-                  return Center(
-                    child: Text(
-                      'Item $index',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  );
-                }),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: ReorderableWrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  needsLongPressDraggable: true,
+                  onReorder: _onReorder,
+                  children: gridItems,
+                ),
               ),
             ],
           ),
