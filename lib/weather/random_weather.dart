@@ -1,17 +1,6 @@
 import 'dart:math';
 
-abstract interface class Weather {
-  int getTemperature();
-  int getWindSpeed();
-
-  // Percentages
-  int getCloudCover();
-  int getHumidity();
-
-  // Metrics
-  int getAQI();
-  int getUV();
-}
+import 'package:beach_weather_app/weather/interface.dart';
 
 class RandomWeather implements Weather {
   var rand = Random();
