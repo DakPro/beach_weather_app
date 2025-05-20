@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'location_search_page.dart';
 import 'package:reorderables/reorderables.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'location_search_page.dart';
+import 'data_models.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,29 +31,95 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> infoGrid = List.generate(
-    10,
-        (index) => Container(
-      key: ValueKey(index),
-      height: 80,
-      width: 175,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
-        color: Colors.black26,
-      ),
-      child: Text(
-        'Item $index',
-        style: TextStyle(fontSize: 18),
-      ),
-    ),
+  List<CurrentWeatherInfo> weatherData = [
+    CurrentWeatherInfo(label: 'Temperature', icon: Icons.thermostat, value: '24°C'),
+    CurrentWeatherInfo(label: 'Humidity', icon: Icons.water_drop, value: '60%'),
+    CurrentWeatherInfo(label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
+    CurrentWeatherInfo(label: 'Rainfall', icon: Icons.beach_access, value: '5 mm'),
+    CurrentWeatherInfo(label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
+    CurrentWeatherInfo(label: 'Pressure', icon: Icons.speed, value: '1015 hPa'),
+    CurrentWeatherInfo(label: 'UV Index', icon: Icons.wb_sunny, value: '3'),
+    CurrentWeatherInfo(label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
+    CurrentWeatherInfo(label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
+    CurrentWeatherInfo(label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
+  ];
+
+  List<Widget> get infoGrid => List.generate(
+    weatherData.length,
+        (index) {
+      final info = weatherData[index];
+      return Container(
+        key: ValueKey(info.label), // Use unique key
+        height: 80,
+        width: 175,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.70),
+          // border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(info.icon),
+            Text(
+              info.label,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              info.value,
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
+        ),
+      );
+    },
   );
 
   void _onReorder(int oldIndex, int newIndex) {
     setState(() {
-      final item = infoGrid.removeAt(oldIndex);
-      infoGrid.insert(newIndex, item);
+      final item = weatherData.removeAt(oldIndex);
+      weatherData.insert(newIndex, item);
     });
+    _saveOrder(); // Save after every reorder
+  }
+
+  Future<void> _saveOrder() async {
+    final prefs = await SharedPreferences.getInstance();
+    List<String> order = weatherData.map((item) => item.label).toList();
+    await prefs.setStringList('weather_order', order);
+  }
+
+  Future<void> _loadOrder() async {
+    final prefs = await SharedPreferences.getInstance();
+    List<String>? savedOrder = prefs.getStringList('weather_order');
+
+    if (savedOrder != null) {
+      // Reorder weatherData based on saved labels
+      Map<String, CurrentWeatherInfo> dataMap = {
+        for (var item in weatherData) item.label: item,
+      };
+
+      setState(() {
+        weatherData = savedOrder
+            .where((label) => dataMap.containsKey(label))
+            .map((label) => dataMap[label]!)
+            .toList();
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadOrder();
   }
 
   @override
@@ -66,7 +134,6 @@ class _HomePageState extends State<HomePage> {
         ),
         child: ListView(
           children: [
-            SizedBox(height: 10),
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
@@ -84,11 +151,11 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.symmetric(horizontal: 18),
                     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withValues(alpha: 0.70),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black12,
+                          color: Colors.black26,
                           blurRadius: 6,
                           offset: Offset(0, 3),
                         ),
@@ -158,14 +225,31 @@ class _HomePageState extends State<HomePage> {
               margin: const EdgeInsets.symmetric(horizontal: 10),
               height: 60,
               decoration: BoxDecoration(
-                color: Colors.black26,
-                border: Border.all(color: Colors.black),
+                color: Colors.white.withValues(alpha: 0.70),
+                // border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 6,
+                    offset: Offset(0, 3),
+                  ),
+                ],
               ),
-              child: Center(
-                child: Text(
-                  'Suggestion',
-                  style: TextStyle(fontSize: 20),
-                ),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Icon(Icons.try_sms_star_rounded, color: Colors.black),
+                  ),
+                  Text(
+                    '[Suggestion text...]',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 20),
@@ -184,8 +268,8 @@ class _HomePageState extends State<HomePage> {
             Column(
               children: containerData.map((data) {
                 return InfoContainer(
-                  title: data['title'],
-                  number: data['number'],
+                  day: data.day,
+                  temperatures: data.temperatures,
                 );
               }).toList(),
             ),
@@ -197,13 +281,13 @@ class _HomePageState extends State<HomePage> {
 }
 
 class InfoContainer extends StatelessWidget {
-  final String title;
-  final int number;
+  final String day;
+  final List<int> temperatures;
 
   const InfoContainer({
     super.key,
-    required this.title,
-    required this.number,
+    required this.day,
+    required this.temperatures,
   });
 
   @override
@@ -218,20 +302,20 @@ class InfoContainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: const TextStyle(fontSize: 18)),
-          Text(number.toString(), style: const TextStyle(fontSize: 18)),
+          Text(day, style: const TextStyle(fontSize: 18)),
+          Text(temperatures.toString(), style: const TextStyle(fontSize: 18)),
         ],
       ),
     );
   }
 }
 
-final List<Map<String, dynamic>> containerData = [
-  {'title': 'Monday', 'number': 1},
-  {'title': 'Tuesday', 'number': 2},
-  {'title': 'Wednesday', 'number': 3},
-  {'title': 'Thursday', 'number': 4},
-  {'title': 'Friday', 'number': 5},
-  {'title': 'Saturday', 'number': 6},
-  {'title': 'Sunday', 'number': 7},
+final List<NextDaysWeatherInfo> containerData = [
+  NextDaysWeatherInfo(day: 'Monday', temperatures: [1,2,3]),
+  NextDaysWeatherInfo(day: 'Tuesday', temperatures: [2,3,4]),
+  NextDaysWeatherInfo(day: 'Wednesday', temperatures: [3,4,5]),
+  NextDaysWeatherInfo(day: 'Thursday', temperatures: [4,5,6]),
+  NextDaysWeatherInfo(day: 'Friday', temperatures: [5,6,7]),
+  NextDaysWeatherInfo(day: 'Saturday', temperatures: [6,7,8]),
+  NextDaysWeatherInfo(day: 'Sunday', temperatures: [7,8,9]),
 ];
