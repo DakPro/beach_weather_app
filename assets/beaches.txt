@@ -1,0 +1,778 @@
+Clevedon Beach:North Somerset:South West:0
+Weston-super-Mare - Uphill Slipway:North Somerset:South West:0
+Weston-super-Mare - Main Beach:North Somerset:South West:0
+Weston super Mare - Sand Bay:North Somerset:South West:0
+Berrow - North of Unity Farm:Somerset:South West:0
+Brean:Somerset:South West:0
+Brean Beach at Brean Farm:Somerset:South West:0
+Burnham-on-Sea - Jetty:Somerset:South West:0
+Blue Anchor West:Somerset:South West:0
+Dunster North West:Somerset:South West:0
+Minehead - Terminus:Somerset:South West:0
+Porlock Weir - Porlock Bay:Somerset:South West:0
+Lynmouth:Devon:South West:0
+Combe Martin:Devon:South West:0
+Ilfracombe - Hele Beach:Devon:South West:0
+Ilfracombe - Capstone (Wildersmouth):Devon:South West:0
+Ilfracombe - Tunnels Beach:Devon:South West:0
+Woolacombe - Barricane Bay:Devon:South West:0
+Woolacombe  - Village:Devon:South West:0
+Putsborough Sands:Devon:South West:0
+Croyde Bay:Devon:South West:0
+Saunton Sands:Devon:South West:0
+Instow:Devon:South West:1
+Westward Ho!:Devon:South West:0
+Hartland Quay:Devon:South West:0
+Bude - Sandymouth:Cornwall:South West:0
+Bude - Crooklets:Cornwall:South West:0
+Bude - Summerleaze:Cornwall:South West:1
+Widemouth Sand:Cornwall:South West:0
+Crackington Haven:Cornwall:South West::0
+Trebarwith Strand:Cornwall:South West:0
+Polzeath (Hayle Bay):Cornwall:South West:0
+Daymer Bay:Cornwall:South West:0
+Rock:Cornwall:South West:0
+Trevone Bay:Cornwall:South West:0
+Harlyn Bay:Cornwall:South West:0
+Mother Ivey's Bay:Cornwall:South West:0
+Constantine Bay:Cornwall:South West:0
+Treyarnon Bay:Cornwall:South West:0
+Porthcothan:Cornwall:South West:0
+Mawgan Porth:Cornwall:South West:0
+Watergate Bay:Cornwall:South West:0
+Porth Beach:Cornwall:South West:0
+Lusty Glaze:Cornwall:South West:0
+Newquay - Great Western:Cornwall:South West:0
+Newquay - Tolcarne:Cornwall:South West:0
+Newquay - Towan:Cornwall:South West:0
+Crantock:Cornwall:South West:0
+Holywell Bay:Cornwall:South West:0
+Perran Sands:Cornwall:South West:0
+Perranporth - Penhale Sands:Cornwall:South West:0
+Perranporth - Village:Cornwall:South West:0
+St Agnes - Trevaunance Cove:Cornwall:South West:0
+Porthtowan:Cornwall:South West:0
+Portreath:Cornwall:South West:0
+The Towans - Godrevy: Cornwall:South West:0
+The Towans, Hayle:Cornwall:South West:0
+Carbis Bay - Porth Kidney:Cornwall:South West:0
+Carbis Bay Beach (Station):Cornwall:South West:0
+St Ives - Porthminster:Cornwall:South West:0
+St Ives - Porth Gwidden:Cornwall:South West:0
+St Ives - Porthmeor:Cornwall:South West:0
+Sennen Cove:Cornwall:South West:0
+Porthcurno:Cornwall:South West:0
+Mounts Bay - Heliport:Cornwall:South West:0
+Mounts Bay - Wherry Town:Cornwall:South West:0
+Mounts Bay - Penzance:Cornwall:South West:0
+Mounts Bay - Little Hogus:Cornwall:South West::0
+Praa Sands West:Cornwall:South West:0
+Praa Sands East:Cornwall:South West:0
+Porthleven - West:Cornwall:South West:0
+Poldhu Cove:Cornwall:South West:0
+Pollurian Cove:Cornwall:South West:0
+Lizard Church Cove:Cornwall:South West:0
+Kennack Sands:Cornwall:South West:0
+Coverack:Cornwall:South West:0
+Porthoustock:Cornwall:South West:0
+Porthallow:Cornwall:South West:0
+Maenporth:Cornwall:South West:0
+Swanpool:Cornwall:South West:0
+Gyllyngvase:Cornwall:South West:0
+Porthcurnick:Cornwall:South West:0
+Pendower Beach:Cornwall:South West:0
+Porthluney Cove:Cornwall:South West:0
+Gorran Haven - Vault Beach:Cornwall:South West:0
+Gorran Haven - Little Perhaver:Cornwall:South West:0
+Port Mellon:Cornwall:South West:0
+Polstreath:Cornwall:South West:0
+Pentewan Sands:Cornwall:South West:0
+Porthpean:Cornwall:South West:0
+Charlestown:Cornwall:South West:0
+Crinnis Beach - Leisure Centre:Cornwall:South West:0
+Crinnis Beach - Golf Links:Cornwall:South West:0
+Par:Cornwall:South West:0
+Polkerris:Cornwall:South West::0
+Readymoney (Fowey):Cornwall:South West:0
+Looe - East:Cornwall:South West:0
+Millendreath:Cornwall:South West:0
+Seaton:Cornwall:South West:0
+Downderry:Cornwall:South West:0
+Portwrinkle:Cornwall:South West::0
+Cawsand Bay:Cornwall:South West:0
+Kingsand Bay:Cornwall:South West:0
+Plymouth Hoe - West:Plymouth:South West:0
+Plymouth Hoe - East:Plymouth:South West::0
+Bovisand Bay:Devon:South West:0
+Wembury:Devon:South West:0
+Mothecombe - Meadowsfoot &amp; Coastguards Beach:Devon:South West:1
+Challaborough:Devon:South West:0
+Bigbury on Sea (North):Devon:South West:0
+Bigbury on Sea (South):Devon:South West:0
+Bantham:Devon:South West:0
+Thurlestone - North:Devon:South West:0
+Thurlestone - South:Devon:South West:0
+Hope Cove:Devon:South West::0
+Salcombe - South Sands:Devon:South West:0
+Salcombe - North Sands:Devon:South West:0
+Mill Bay:Devon:South West:0
+Slapton Sands - Torcross:Devon:South West:0
+Slapton Sands - Monument:Devon:South West:0
+Blackpool Sands, Stoke Fleming:Devon:South West:0
+Dartmouth Castle and Sugary Cove:Devon:South West:0
+St Mary's Bay - Devon:Devon:South West:0
+Shoalstone Beach:Torbay:South West:0
+Broadsands Beach:Torbay:South West:0
+Goodrington Sands:Torbay:South West::0
+Paignton - Paignton Sands:Torbay:South West:0
+Paignton - Preston Sands:Torbay:South West:0
+Hollicombe:Torbay:South West:0
+Torre Abbey:Torbay:South West:0
+Beacon Cove:Torbay:South West:0
+Meadfoot - Torbay:Torbay:South West:0
+Anstey's Cove:Torbay:South West:0
+Babbacombe Bay, Torquay:Torbay:South West:0
+Oddicombe Beach:Torbay:South West:0
+Watcombe:Torbay:South West::0
+Maidencombe - Torbay:Torbay:South West:0
+Ness Cove:Devon:South West::0
+Shaldon:Devon:South West:0
+Teignmouth Back Beach:Devon:South West:0
+Teignmouth - Town:Devon:South West:0
+Teignmouth - Holcombe:Devon:South West:0
+Dawlish - Coryton Cove:Devon:South West:0
+Dawlish - Town:Devon:South West:0
+Dawlish - Warren:Devon:South West:0
+Exmouth:Devon:South West::0
+Sandy Bay:Devon:South West:0
+Budleigh Salterton:Devon:South West:0
+Ladram Bay:Devon:South West:0
+Sidmouth - Jacobs Ladder:Devon:South West:0
+Sidmouth - Town:Devon:South West:0
+Beer:Devon:South West:0
+Seaton - Devon:Devon:South West:0
+Lyme Regis - Cobb:Dorset:South West:0
+Lyme Regis - Church Beach:Dorset:South West:0
+Charmouth - West:Dorset:South West:0
+Hive Beach, Burton Bradstock:Dorset:South West:0
+Seatown:Dorset:South West:0
+Eypemouth:Dorset:South West:0
+West Bay - West:Dorset:South West:0
+Portland Harbour - Sandsfoot Castle:Dorset:South West:0
+Portland Harbour - Castle Cove:Dorset:South West:0
+Weymouth - Lodmoor:Dorset:South West:0
+Weymouth - Central:Dorset:South West:0
+Church Ope Cove:Dorset:South West:0
+Bowleaze Cove:Dorset:South West:0
+Ringstead Bay:Dorset:South West:0
+Durdle Door - West:Dorset:South West:0
+Durdle Door - East:Dorset:South West:0
+Lulworth Cove:Dorset:South West:0
+Kimmeridge Bay:Dorset:South West:0
+Swanage - Central:Dorset:South West:0
+Studland - Knoll Beach:Dorset:South West:0
+Studland - Shell Bay:Dorset:South West:0
+Poole - Harbour Rockley Sand:Dorset:South West:0
+Poole - Harbour Lake:Poole:South West:0
+Poole -  Canford Cliffs:Poole:South West:0
+Poole - Sandbanks Peninsular:Poole:South West:0
+Poole - Shore Road, Sandbanks:Poole:South West:0
+Poole - Branksome Chine:Poole:South West:0
+Bournemouth - Durley Chine:Bournemouth:South West:0
+Bournemouth - Alum Chine:Bournemouth:South West:0
+Bournemouth - Pier:Bournemouth:South West:0
+Bournemouth - Boscombe Pier:Bournemouth:South West:0
+Bournemouth - Fisherman's Walk:Bournemouth:South West:0
+Bournemouth - Hengistbury West:Bournemouth:South West:0
+Bournemouth - Southbourne:Bournemouth:South West:0
+Christchurch - Mudeford Sandbank East:Bournemouth:South West:0
+Christchurch - Avon Beach:Dorset:South West:0
+Christchurch - Friar's Cliff:Dorset:South West:0
+Christchurch - Highcliffe Castle:Dorset:South West:0
+Highcliffe:Dorset:South West:0
+Totland Bay:Isle of Wight:South East:0
+Colwell Bay:Isle of Wight:South East:0
+Gurnard:Isle of Wight:South East:0
+Cowes:Isle of Wight:South East::0
+Cowes-East:Isle of Wight:South East:0
+Ryde - West:Isle of Wight:South East:0
+Ryde-East:Isle of Wight:South East:0
+Ryde - Spring Vale:Isle of Wight:South East:0
+Seagrove:Isle of Wight:South East:0
+St Helens:Isle of Wight:South East:0
+Bembridge:Isle of Wight:South East:0
+Whitecliff Bay:Isle of Wight:South East:0
+Sandown - Yaverland:Isle of Wight:South East:0
+Sandown:Isle of Wight:South East:0
+Shanklin:Isle of Wight:South East:0
+Ventnor:Isle of Wight:South East:0
+Compton Bay:Isle of Wight:South East:0
+Christchurch Bay (Barton-on-Sea):Hampshire:South East:0
+Milford-on-sea:Hampshire:South East:0
+Lepe:Hampshire:South East:0
+Calshot:Hampshire:South East:0
+Hill Head:Hampshire:South East:0
+Lee-on-Solent:Hampshire:South East:0
+Stokes Bay:Hampshire:South East:0
+Southsea (300m West of EC Site):Hampshire:South East:0
+Old Portsmouth Beach (Victoria pier):City of Portsmouth:South East:0
+Southsea:City of Portsmouth:South East:0
+Eastney:City of Portsmouth:South East:0
+Hayling Island - West Hayling:Hampshire:South East:0
+Hayling Island - West Beachlands:Hampshire:South East:0
+Hayling Island - West of Eastoke:Hampshire:South East:0
+West Wittering:West Sussex:South East:0
+Bracklesham Bay:West Sussex:South East:0
+Selsey:West Sussex:South East:0
+Pagham:West Sussex:South East:0
+Bognor Regis:West Sussex:South East:0
+Bognor Regis - East:West Sussex:South East:0
+Felpham:West Sussex:South East:0
+Middleton-on-Sea:West Sussex:South East:0
+Littlehampton:West Sussex:South East:0
+Worthing:West Sussex:South East:0
+South Lancing:West Sussex:South East:0
+Southwick:East Sussex:South East:0
+Hove:East Sussex:South East:0
+Brighton - Kemp Town:East Sussex:South East:0
+Brighton - Central (Palace Pier):East Sussex:South East:0
+Saltdean:East Sussex:South East:0
+Newhaven:East Sussex:South East:0
+Newhaven - West Quay:East Sussex:South East:0
+Seaford Bay:East Sussex:South East:0
+Birling Gap:East Sussex:South East:0
+Eastbourne - Western Parade:East Sussex:South East:0
+Eastbourne:East Sussex:South East:0
+Pevensey Bay:East Sussex:South East:0
+Norman's Bay:East Sussex:South East:0
+Cooden Beach:East Sussex:South East:1
+Bexhill:East Sussex:South East:0
+St. Leonards:East Sussex:South East:0
+Hastings:East Sussex:South East:0
+Winchelsea:East Sussex:South East:0
+Camber:East Sussex:South East:0
+Littlestone:Kent:South East:0
+St Mary's Bay:Kent:South East:0
+Dymchurch:Kent:South East:0
+Hythe:Kent:South East:0
+Sandgate Beach:Kent:South East::0
+Folkestone:Kent:South East::0
+Reculver Beach:Kent:South East::0
+Dover Harbour:Kent:South East:0
+St Margaret`s Bay:Kent:South East:0
+Deal Castle:Kent:South East:0
+Sandwich Bay:Kent:South East:0
+Ramsgate Main Sands:Kent:South East::0
+Ramsgate:Kent:South East:0
+Broadstairs - Main Beach (Viking):Kent:South East:0
+Joss Bay:Kent:South East:0
+Stone Bay:Kent:South East:0
+Botany Bay:Kent:South East:0
+Walpole Bay:Kent:South East:0
+Margate - Fulsam Rock:Kent:South East:0
+Margate - The Bay:Kent:South East:0
+Westbrook Bay:Kent:South East:0
+St. Mildred's Bay:Kent:South East:0
+Westgate Bay:Kent:South East:0
+Minnis Bay:Kent:South East:0
+Herne Bay:Kent:South East:0
+Herne Bay - Central:Kent:South East::0
+Hampton Pier - East:Kent:South East:0
+Tankerton Beach:Kent:South East::0
+Whitstable West Beach:Kent:South East::0
+Leysdown-on-Sea:Kent:South East:0
+Sheerness:Kent:South East:0
+Canvey Island:Essex:South East:0
+Canvey Island - Thorney Bay:Essex:South East:0
+Southend - Leigh Bell Wharf:Southend-on-Sea:South East:0
+Southend - Chalkwell Beach:Southend-on-Sea:South East:0
+Southend - Westcliff Bay:Southend-on-Sea:South East:0
+Southend - Three Shells:Southend-on-Sea:South East:0
+Southend - Jubilee Beach:Southend-on-Sea:South East:1
+Southend - Thorpe Bay:Southend-on-Sea:South East:0
+Shoeburyness:Southend-on-Sea:South East::0
+Shoebury East:Southend-on-Sea:South East:0
+West Mersea:Essex:South East:0
+Brightlingsea:Essex:South East:0
+Jaywick:Essex:South East:0
+Clacton -Martello Tower:Essex:South East:0
+Clacton:Essex:South East:0
+Clacton - Groyne 41:Essex:South East:0
+Holland-on-Sea:Essex:South East:0
+Frinton-on-Sea:Essex:South East:0
+Walton-on-the-Naze:Essex:South East:0
+Dovercourt Bay:Essex:South East:0
+Felixstowe - South:Suffolk:South East:0
+Felixstowe - North:Suffolk:South East:0
+Southwold - The Denes:Suffolk:South East:0
+Southwold - The Pier:Suffolk:South East:0
+Lowestoft - Gunton Denes:Suffolk:South East:0
+Lowestoft- North of Claremont Pier:Suffolk:South East:0
+Lowestoft - South of Claremont Pier:Suffolk:South East:0
+Gorleston Beach:Norfolk:South East:0
+Great Yarmouth-South:Norfolk:South East:0
+Great Yarmouth-Pier (Marina Leisure centre):Norfolk:South East:0
+Great Yarmouth North:Norfolk:South East:0
+Caister Point:Norfolk:South East:0
+Hemsby:Norfolk:South East:0
+Sea Palling:Norfolk:South East:0
+Mundesley:Norfolk:South East:0
+Cromer:Norfolk:South East:0
+Sheringham:Norfolk:South East:0
+Wells:Norfolk:South East:0
+Hunstanton Beach:Norfolk:South East:0
+Hunstanton - Main Beach:Norfolk:South East:0
+Heacham - S.Sands Club:Norfolk:South East:0
+Skegness:Lincolnshire:North East:0
+Ingoldmells South:Lincolnshire:North East:1
+Chapel St Leonards:Lincolnshire:North East:0
+Anderby:Lincolnshire:North East:0
+Moggs Eye (Huttoft Beach):Lincolnshire:North East:0
+Sutton-on-Sea:Lincolnshire:North East:0
+Mablethorpe Town:Lincolnshire:North East:0
+Cleethorpes:Lincolnshire:North East:0
+Withernsea:East Riding of Yorkshire:North East:0
+Tunstall:East Riding of Yorkshire:North East:0
+Hornsea:East Riding of Yorkshire:North East:0
+Skipsea:East Riding of Yorkshire:North East:0
+Barmston:East Riding of Yorkshire:North East:0
+Fraisthorpe:East Riding of Yorkshire:North East:0
+Wilsthorpe:East Riding of Yorkshire:North East:0
+Bridlington - South Beach:East Riding of Yorkshire:North East:0
+Bridlington - North Beach:East Riding of Yorkshire:North East::0
+Flamborough - South Landing:East Riding of Yorkshire:North East:0
+Flamborough - North Landing:East Riding of Yorkshire:North East:0
+Flamborough - Danes Dyke:East Riding of Yorkshire:North East:0
+Reighton:North Yorkshire:North East:0
+Filey:North Yorkshire:North East:0
+Cayton Bay:North Yorkshire:North East:0
+Scarborough - South Bay:North Yorkshire:North East:0
+Scarborough North Bay:North Yorkshire:North East:0
+Robin Hoods Bay:North Yorkshire:North East:0
+Whitby:North Yorkshire:North East:0
+Sandsend:North Yorkshire:North East:1
+Runswick Bay:North Yorkshire:North East:1
+Staithes:North Yorkshire:North East:1
+Saltburn:Redcar and Cleveland:North East:0
+Sea at Marske Sands:Redcar and Cleveland:North East:0
+Redcar - Stray:Redcar and Cleveland:North East:0
+Redcar - Granville:Redcar and Cleveland:North East:0
+Redcar - Lifeboat Station:Redcar and Cleveland:North East:0
+Redcar - Coatham:Redcar and Cleveland:North East:0
+Seaton Carew - North Gare:Hartlepool:North East:0
+Seaton Carew - Centre:Hartlepool:North East:0
+Seaton Carew - North:Hartlepool:North East:0
+Crimdon - Park:Durham:North East:0
+Seaham Hall Beach (Remand Home):Durham:North East::0
+Seaham Beach:Durham:North East::0
+Roker (Whitburn South):Sunderland:North East:0
+Seaburn Beach (Whitburn North):Sunderland:North East:0
+Marsden:South Tyneside:North East:0
+South Shields (Sandhaven):South Tyneside:North East:0
+Tynemouth, King Edwards Bay:North Tyneside:North East:0
+Tynemouth - Long Sands South:North Tyneside:North East:0
+Tynemouth - Long Sands North:North Tyneside:North East::0
+Tynemouth - Cullercoats:North Tyneside:North East:0
+Whitley Bay:North Tyneside:North East:0
+Seaton Sluice:North Tyneside:North East:0
+Blyth South Beach:Northumberland:North East:0
+Newbiggin - South:Northumberland:North East:0
+Newbiggin - North:Northumberland:North East:0
+Druridge Bay:Northumberland:North East:0
+Druridge Bay North (adj visitors ctr):Northumberland:North East:0
+Druridge Bay South (nrth Creswell):Northumberland:North East:0
+Amble Links:Northumberland:North East:0
+Warkworth:Northumberland:North East:0
+Low Newton, Newton Haven:Northumberland:North East:0
+Beadnell Bay:Northumberland:North East:0
+Seahouses North:Northumberland:North East:0
+Bamburgh Castle:Northumberland:North East:0
+Spittal:Northumberland:North East:0
+Skinburness:Cumbria:North West:0
+Silloth:Cumbria:North West:0
+Allonby - South:Cumbria:North West:0
+Allonby:Cumbria:North West:0
+St. Bees:Cumbria:North West:0
+Seascale:Cumbria:North West:0
+Silecroft:Cumbria:North West:0
+Haverigg:Cumbria:North West::0
+Askam-in-Furness:Cumbria:North West:0
+Roan Head:Cumbria:North West:0
+Walney Island - West Shore:Cumbria:North West::0
+Walney Island - Sandy Gap:Cumbria:North West:0
+Walney Island - Biggar Bank:Cumbria:North West:0
+Newbiggin:Cumbria:North West:0
+Aldingham:Cumbria:North West:1
+Bardsea:Cumbria:North West:0
+Morecambe - North:Lancashire:North West:0
+Morecambe - South:Lancashire:North West:1
+Heysham (Half Moon Bay):Lancashire:North West:0
+Fleetwood:Lancashire:North West:0
+Bispham:Blackpool:North West:0
+Blackpool - Central:Blackpool:North West:0
+Blackpool - South:Blackpool:North West:0
+St. Annes - North:Lancashire:North West::0
+St. Annes:Lancashire:North West:1
+Southport:Sefton:North West:0
+Ainsdale:Sefton:North West:0
+Formby:Sefton:North West:0
+New Brighton (Wallasey):Wirral:North West:0
+Moreton:Wirral:North West:0
+Meols:Wirral:North West:0
+West Kirby:Wirral:North West:0
+Douglas - Summerhill:Isle of Man:Isle of Man:0
+Douglas - Central:Isle of Man:Isle of Man:1
+Douglas - Broadway:Isle of Man:Isle of Man:0
+Garwick:Isle of Man:Isle of Man:0
+Laxey:Isle of Man:Isle of Man::0
+Ramsey:Isle of Man:Isle of Man:0
+Peel:Isle of Man:Isle of Man:1
+Port Erin:Isle of Man:Isle of Man:1
+Port St Mary:Isle of Man:Isle of Man:0
+Castletown:Isle of Man:Isle of Man::0
+Derbyhaven:Isle of Man:Isle of Man:0
+Gansey Bay (Bay Ny Carrickey):Isle of Man:Isle of Man:0
+Kirk Michael:Isle of Man:Isle of Man:0
+Glen Wyllin:Isle of Man:Isle of Man:0
+Port Grenaugh:Isle of Man:Isle of Man:1
+Port Soderick:Isle of Man:Isle of Man::0
+Jurby:Isle of Man:Isle of Man::0
+Fenella Beach:Isle of Man:Isle of Man:0
+Point of Ayr, Talacre:Flintshire:Wales:0
+Prestatyn Central :Denbighshire:Wales:0
+Prestatyn Gronant Dunes:Denbighshire:Wales:0
+Prestatyn Barkby Beach:Denbighshire:Wales:0
+Prestatyn Ffrith Beach:Denbighshire:Wales:0
+Rhyl:Denbighshire:Wales:1
+Splash Point, Rhyl:Denbighshire:Wales:1
+Kinmel Bay (Sandy Cove):Conwy:Wales:0
+Abergele - Towyn:Conwy:Wales::0
+Abergele - Pensarn:Conwy:Wales:0
+Colwyn Bay:Conwy:Wales:0
+Old Colwyn:Conwy:Wales:0
+Colwyn Bay - Marine Road:Conwy:Wales:0
+Colwyn Bay - Cayley Promenade:Conwy:Wales:0
+Penrhyn Bay:Conwy:Wales:0
+Llandudno - North Shore:Conwy:Wales:0
+Llandudno - West Shore:Conwy:Wales::0
+Deganwy North:Conwy:Wales:1
+Conwy Morfa:Conwy:Wales:1
+Penmaenmawr:Conwy:Wales:0
+Beaumaris:Isle of Anglesey:Wales:0
+Lleiniog Beach, Penmon:Isle of Anglesey:Wales:0
+Llanddona:Isle of Anglesey:Wales:0
+St. Davids, Benllech:Isle of Anglesey:Wales:0
+Red Wharf Bay:Isle of Anglesey:Wales:0
+Benllech:Isle of Anglesey:Wales:0
+Moelfre:Isle of Anglesey:Wales:0
+Traeth Lligwy:Isle of Anglesey:Wales:0
+Porth Eilian, Amlwch:Isle of Anglesey:Wales:0
+Cemaes:Isle of Anglesey:Wales:0
+Cemaes - Traeth Bach:Isle of Anglesey:Wales:0
+Cemlyn:Isle of Anglesey:Wales:0
+Church Bay:Isle of Anglesey:Wales:0
+Porth Trwyn:Isle of Anglesey:Wales:0
+Porth Tywyn Mawr (Sandy Beach):Isle of Anglesey:Wales:0
+Porth Dafarch:Isle of Anglesey:Wales:0
+Trearddur Bay:Isle of Anglesey:Wales:0
+Rhoscolyn - Borth Wen:Isle of Anglesey:Wales:0
+Rhoscolyn - Silver Bay:Isle of Anglesey:Wales:0
+Llanfaelog - Porth Tyn Tywyn:Isle of Anglesey:Wales:0
+Llanfaelog - Porth Nobla:Isle of Anglesey:Wales:0
+Rhosneigr - Traeth Crigyll:Isle of Anglesey:Wales:0
+Rhosneigr:Isle of Anglesey:Wales:0
+Porth Trecastell:Isle of Anglesey:Wales:0
+Aberffraw Bay (Traeth Mawr):Isle of Anglesey:Wales:0
+Llanddwyn Beach:Isle of Anglesey:Wales:0
+Port Dinorwic Sailing Club, Felinheli:Gwynedd:Wales:0
+Plas Menai:Gwynedd:Wales:0
+Dinas Dinlle (Morfa Dinlle):Gwynedd:Wales:0
+Porth Nefyn:Gwynedd:Wales:0
+Aberdaron Beach:Gwynedd:Wales:0
+Porth Neigwl:Gwynedd:Wales:0
+Abersoch:Gwynedd:Wales:0
+Llanbedrog:Gwynedd:Wales:0
+Llanbedrog Beach North:Gwynedd:Wales:0
+Pwllheli:Gwynedd:Wales:0
+Abererch:Gwynedd:Wales:0
+Criccieth - West End:Gwynedd:Wales:0
+Criccieth:Gwynedd:Wales:0
+Morfa Bychan (Craig Du):Gwynedd:Wales:0
+Carreg Wen:Gwynedd:Wales:0
+Harlech:Gwynedd:Wales:0
+Llandanwg:Gwynedd:Wales:0
+Dyffryn (Llanendwyn):Gwynedd:Wales::0
+Tal-y-bont:Gwynedd:Wales:0
+Barmouth:Gwynedd:Wales:0
+Fairbourne:Gwynedd:Wales:0
+Tywyn:Gwynedd:Wales::0
+Aberdyfi:Gwynedd:Wales:1
+Ynyslas - Northern Groyne (Sea):Ceredigion:Wales:0
+Ynyslas - Twyni Bach (Estuary):Ceredigion:Wales:0
+Borth:Ceredigion:Wales:0
+Clarach - South:Ceredigion:Wales:0
+Aberystwyth - North:Ceredigion:Wales:0
+Aberystwyth - South:Ceredigion:Wales:0
+Llanrhystyd - South:Ceredigion:Wales:0
+Llansantffraid:Ceredigion:Wales:0
+Llanon (Slipway):Ceredigion:Wales:0
+Aberarth:Ceredigion:Wales:0
+Aberaeron - South (Northern Groyne):Ceredigion:Wales:0
+Aberaeron - Harbour (Fourth Groyne North):Ceredigion:Wales:0
+Little Quay (Cei Bach):Ceredigion:Wales:1
+Gilfach yr Halen:Ceredigion:Wales:0
+Llanina:Ceredigion:Wales:1
+New Quay - Traeth Gwyn:Ceredigion:Wales::0
+New Quay - North Beach:Ceredigion:Wales:0
+New Quay, Harbour Beach:Ceredigion:Wales:0
+Cwmtydu:Ceredigion:Wales:0
+Cilborth:Ceredigion:Wales:1
+Llangrannog:Ceredigion:Wales:0
+Penbryn:Ceredigion:Wales:0
+Tresaith:Ceredigion:Wales:0
+Aberporth:Ceredigion:Wales:0
+Mwnt:Ceredigion:Wales::0
+Poppit Sands - West:Pembrokeshire:Wales::0
+Newport Sands - North:Pembrokeshire:Wales:0
+Cwm yr Eglwys:Pembrokeshire:Wales:0
+Pwllgwaelod:Pembrokeshire:Wales:1
+Goodwick - Harbour South:Pembrokeshire:Wales:0
+Goodwick Sands:Pembrokeshire:Wales:0
+Aber Mawr Bay:Pembrokeshire:Wales::0
+Abercastle:Pembrokeshire:Wales:1
+Abereiddy Bay - Slipway:Pembrokeshire:Wales:0
+Blue Lagoon - Abereiddy Bay:Pembrokeshire:Wales:0
+Whitesands:Pembrokeshire:Wales:0
+Caerfai Bay:Pembrokeshire:Wales:0
+Newgale Sands:Pembrokeshire:Wales:0
+Broadhaven:Pembrokeshire:Wales:0
+Nolton Haven:Pembrokeshire:Wales:0
+Druidston Haven:Pembrokeshire:Wales:0
+Little Haven:Pembrokeshire:Wales:0
+St Brides Haven:Pembrokeshire:Wales:0
+Marloes Sands:Pembrokeshire:Wales:0
+Westdale:Pembrokeshire:Wales:0
+Watwick:Pembrokeshire:Wales:0
+Porthselau:Pembrokeshire:Wales:0
+Dale:Pembrokeshire:Wales:0
+Sandy Haven:Pembrokeshire:Wales:0
+Gelliswick, Milford Haven:Pembrokeshire:Wales:0
+West Angle Bay:Pembrokeshire:Wales:0
+Martin's Haven:Pembrokeshire:Wales:0
+Freshwater West:Pembrokeshire:Wales:0
+Broadhaven South:Pembrokeshire:Wales:0
+Barafundle Bay:Pembrokeshire:Wales:0
+Priory Bay, Caldy Island:Pembrokeshire:Wales:0
+Freshwater East:Pembrokeshire:Wales:0
+Manorbier Bay:Pembrokeshire:Wales:0
+Swanlake Bay:Pembrokeshire:Wales:0
+Lydstep Haven:Pembrokeshire:Wales:0
+Penally:Pembrokeshire:Wales:0
+Tenby - South:Pembrokeshire:Wales:0
+Tenby - Castle Beach:Pembrokeshire:Wales:0
+Tenby - North:Pembrokeshire:Wales:0
+Saundersfoot:Pembrokeshire:Wales:0
+Waterwynch Bay:Pembrokeshire:Wales:0
+Monkstone Beach (near tenby):Pembrokeshire:Wales:0
+Coppet Hall:Pembrokeshire:Wales::0
+Glen Beach:Pembrokeshire:Wales:0
+Wisemans Bridge:Pembrokeshire:Wales:0
+Amroth:Pembrokeshire:Wales:1
+Pendine Sands:Carmarthenshire:Wales:0
+Morfa Bychan (Pendine):Carmarthenshire:Wales:0
+Llanstephan &amp; Tywi Estuary:Carmarthenshire:Wales:1
+Ferryside Beach:Carmarthenshire:Wales:0
+Pembrey Beach - Llanelli (Cefn Sidan):Carmarthenshire:Wales:0
+Burry Port Beach- East:Carmarthenshire:Wales:0
+Llanelli &amp; Loughor Estuary (Fourth Groyne):Carmarthenshire:Wales:1
+Broughton Bay:Swansea:Wales:0
+Rhossilli Bay - Hillend:Swansea:Wales:0
+Rhossili Bay:Swansea:Wales:0
+Port Eynon:Swansea:Wales:0
+Oxwich Bay:Swansea:Wales:0
+Torbay, Crawley Woods:Swansea:Wales:0
+Mewslade Bay East:Swansea:Wales:0
+Pwlldu Bay:Swansea:Wales:0
+Caswell Bay:Swansea:Wales:0
+Langland Bay:Swansea:Wales:0
+Limeslade Bay:Swansea:Wales:0
+Bracelet Bay:Swansea:Wales:0
+Swansea Bay - Slip:Swansea:Wales:0
+Swansea Bay - County Hall:Swansea:Wales:1
+Swansea Bay - Opposite Black Pill Rock:Swansea:Wales:1
+Swansea Bay-Knab Rock:Swansea:Wales:0
+Jersey Marine - West:Neath &amp; Port Talbot:Wales:0
+Aberafan:Neath &amp; Port Talbot:Wales:0
+Porthcawl - Rest Bay:Bridgend:Wales:0
+Porthcawl - Sandy Bay:Bridgend:Wales:0
+Porthcawl - Trecco Bay:Bridgend:Wales:0
+Porthcawl - Newton Bay:Bridgend:Wales:0
+Ogmore Central:Vale of Glamorgan:Wales:0
+Southerndown:Vale of Glamorgan:Wales:0
+Llantwit Major Beach:Vale of Glamorgan:Wales:0
+Limpert Bay, Aberthaw:Vale of Glamorgan:Wales:0
+Barry - Watch House Bay:Vale of Glamorgan:Wales:0
+Cold Knap, Barry:Vale of Glamorgan:Wales:0
+Whitmore Bay, Barry:Vale of Glamorgan:Wales:0
+Jacksons Bay Barry:Vale of Glamorgan:Wales:0
+Penarth:Vale of Glamorgan:Wales:0
+Eyemouth:The Borders:Scotland:1
+St.Abbs:The Borders:Scotland:0
+Coldingham Bay:The Borders:Scotland:0
+Pease Bay:The Borders:Scotland::0
+Thorntonloch:East Lothian:Scotland:0
+Whitesands Bay:East Lothian:Scotland:0
+Dunbar - East:East Lothian:Scotland:0
+Dunbar - Belhaven:East Lothian:Scotland::0
+Peffersands:East Lothian:Scotland:0
+Seacliff:East Lothian:Scotland:0
+North Berwick - Milsey Bay:East Lothian:Scotland::0
+North Berwick - West Bay:East Lothian:Scotland:0
+Yellowcraigs (Broad Sands Bay):East Lothian:Scotland:0
+Gullane:East Lothian:Scotland::0
+Longniddry:East Lothian:Scotland::0
+Seton Sands, Longniddry:East Lothian:Scotland:0
+Fisherrow - West:East Lothian:Scotland:1
+Portobello - Central (James Street):City of Edinburgh:Scotland:0
+Portobello - West (King's Road):City of Edinburgh:Scotland:0
+Cramond:City of Edinburgh:Scotland:0
+Aberdour-Harbour:Fife:Scotland:1
+Aberdour-Silver Sands:Fife:Scotland::0
+Burntisland:Fife:Scotland::0
+Kinghorn - Pettycur:Fife:Scotland:0
+Kinghorn - Harbour:Fife:Scotland:1
+Kirkcaldy - Seafield:Fife:Scotland:0
+Leven - East:Fife:Scotland:0
+Lower Largo:Fife:Scotland:1
+Earlsferry:Fife:Scotland:0
+Elie (Woodhaven &amp; Ruby Bay):Fife:Scotland:0
+Anstruther, Billow Ness:Fife:Scotland::0
+Roome Bay, Crail:Fife:Scotland::0
+Kingsbarns:Fife:Scotland:0
+St Andrews-East Sands:Fife:Scotland:0
+St Andrews - West Sands:Fife:Scotland:0
+Tentsmuir Sands:Fife:Scotland:0
+Broughty Ferry:Dundee:Scotland:0
+Carnoustie:Angus:Scotland:0
+Easthaven:Angus:Scotland:1
+Arbroath - West Links:Angus:Scotland:0
+Arbroath - Victoria Park:Angus:Scotland:0
+Lunan Bay:Angus:Scotland:0
+Montrose:Angus:Scotland:0
+St. Cyrus:Aberdeenshire:Scotland:0
+Stonehaven - Carron:Aberdeenshire:Scotland:1
+Aberdeen - Ballroom:City of Aberdeenshire:Scotland:0
+Balmedie Country Park:Aberdeenshire:Scotland:0
+Collieston:Aberdeenshire:Scotland:0
+Cruden Bay:Aberdeenshire:Scotland:0
+Peterhead Lido:Aberdeenshire:Scotland:0
+Fraserburgh:Aberdeenshire:Scotland:0
+Fraserburgh, Philorth:Aberdeenshire:Scotland:0
+Rosehearty:Aberdeenshire:Scotland:0
+Inverboyndie:Aberdeenshire:Scotland:1
+Sandend Bay:Aberdeenshire:Scotland:0
+Cullen:Moray:Scotland:0
+Lossiemouth - East:Moray:Scotland:1
+Lossiemouth - Silversands:Moray:Scotland:0
+Hopeman East:Moray:Scotland:0
+Nairn - East:Highland:Scotland:0
+Nairn - central:Highland:Scotland:0
+Shandwick Bay:Highland:Scotland:0
+Portmahomack:Highland:Scotland:1
+Dornoch (Caravan Park):Highland:Scotland:0
+Embo Beach:Highland:Scotland:0
+Golspie-South:Highland:Scotland:0
+Golspie - North:Highland:Scotland:0
+Brora Beach:Highland:Scotland::0
+Dunnet Bay - Murkle Bay/Dunnet:Highland:Scotland::0
+Thurso Bay Central:Highland:Scotland:0
+Findhorn Family Beach:Highland:Scotland:0
+Strathy Bay:Highland:Scotland:0
+Sango Bay, Durness:Highland:Scotland:0
+Achmelvich Bay:Highland:Scotland:0
+Gruinard Beach:Highland:Scotland:1
+Mellon Udrigle, Laide:Highland:Scotland:0
+Firemore, Poolewe:Highland:Scotland:0
+Gairloch - Big Sand:Highland:Scotland:0
+Gairloch:Highland:Scotland:0
+Gairloch - Redpoint North:Highland:Scotland:0
+Ganavan:Argyle &amp; Bute:Scotland:0
+Ettrick Bay, Bute:Argyle &amp; Bute:Scotland:1
+Machrihanish:Argyle &amp; Bute:Scotland:0
+Lunderston Bay:Inverclyde:Scotland:0
+Millport, Cumbrae:North Ayrshire:Scotland::0
+Seamill:North Ayrshire:Scotland:0
+Saltcoats:North Ayrshire:Scotland:0
+Stevenston:North Ayrshire:Scotland:1
+Irvine - Gailes (New Town):North Ayrshire:Scotland:1
+Largs - Pencil:North Ayrshire:Scotland:0
+Largs - Main:North Ayrshire:Scotland:0
+Barassie:South Ayrshire:Scotland:0
+Troon - South:South Ayrshire:Scotland:0
+Prestwick:South Ayrshire:Scotland:1
+Ayr (South):South Ayrshire:Scotland:1
+Greenan:South Ayrshire:Scotland:0
+Heads of Ayr:South Ayrshire:Scotland:0
+Dunure:South Ayrshire:Scotland:0
+Croy:South Ayrshire:Scotland:0
+Culzean:South Ayrshire:Scotland:0
+Maidens Turnberry:South Ayrshire:Scotland:0
+Girvan:South Ayrshire:Scotland:1
+Mossyard:Dumfries &amp; Galloway:Scotland:0
+Carrick Bay:Dumfries &amp; Galloway:Scotland:0
+Brighouse Bay, Borgue:Dumfries &amp; Galloway:Scotland:0
+Rockcliffe:Dumfries &amp; Galloway:Scotland:0
+Sandyhills:Dumfries &amp; Galloway:Scotland:1
+Southerness:Dumfries &amp; Galloway:Scotland:0
+Magilligan Strand, Benone:Londonderry:N. Ireland:0
+Magilligan - Downhill:Londonderry:N. Ireland:0
+Castlerock:Londonderry:N. Ireland:0
+Portstewart (The Strand):Londonderry:N. Ireland:0
+Portrush - Mill (West) Strand:Antrim:N. Ireland:0
+Portrush, Whiterocks:Antrim:N. Ireland:0
+Portrush - Curran (East) Strand:Antrim:N. Ireland:0
+Ballycastle:Antrim:N. Ireland:0
+Waterfoot:Antrim:N. Ireland:0
+Carnlough:Antrim:N. Ireland:1
+Ballygally:Antrim:N. Ireland:0
+Brown's Bay:Antrim:N. Ireland:0
+Helen's Bay:Down:N. Ireland:0
+Crawfordsburn, Bangor:Down:N. Ireland:0
+Ballyholme:Down:N. Ireland:1
+Groomsport:Down:N. Ireland:0
+Millisle Lagoon:Down:N. Ireland:0
+Ballywalter:Down:N. Ireland:0
+Murlough (Tyrella), Newcastle:Down:N. Ireland:0
+Tyrella Beach (Clough):Down:N. Ireland:0
+Newcastle:Down:N. Ireland:1
+Cranfield - Nicholsons Strand:Down:N. Ireland:0
+Cranfield Bay:Down:N. Ireland::0
+Pembroke Bay:Guernsey:Channel Islands:0
+Bordeaux:Guernsey:Channel Islands:0
+Havelet Bay:Guernsey:Channel Islands::0
+Fermain:Guernsey:Channel Islands::0
+Petit Bot Bay:Guernsey:Channel Islands:0
+Saint's Bay:Guernsey:Channel Islands::0
+Portelet Bay:Guernsey:Channel Islands:0
+L'Eree:Guernsey:Channel Islands:0
+Vazon:Guernsey:Channel Islands:0
+Cobo Beach:Guernsey:Channel Islands:1
+Grandes Rocques:Guernsey:Channel Islands:0
+Port Soif Bay:Guernsey:Channel Islands:0
+Ladies Bay:Guernsey:Channel Islands:0
+St Ouen's Bay - Le Braye:Jersey:Channel Islands::0
+St. Ouen's Bay - Watersplash:Jersey:Channel Islands:0
+Beauport:Jersey:Channel Islands:0
+St Brelade's Bay:Jersey:Channel Islands:0
+Portelet:Jersey:Channel Islands:0
+Havre des Pas:Jersey:Channel Islands:0
+Grouville:Jersey:Channel Islands:0
+Green Island:Jersey:Channel Islands:0
+L'Archirondel:Jersey:Channel Islands:0
+Bouley Bay:Jersey:Channel Islands:0
+Greve de Lecq:Jersey:Channel Islands:0
+Plemont:Jersey:Channel Islands:0
+La Haule:Jersey:Channel Islands:0
+Victoria Pool:Jersey:Channel Islands:0
+Rozel:Jersey:Channel Islands:0
+Bonne Nuit:Jersey:Channel Islands:0
