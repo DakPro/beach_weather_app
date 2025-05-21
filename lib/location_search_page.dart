@@ -7,17 +7,26 @@ class LocationSearchPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Search Location'),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Color(0xFF7DADB2),
       ),
-      body: Padding(
+      body: Container (
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/background_1_v2.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               decoration: InputDecoration(
                 hintText: 'Enter a location',
+                filled: true,
+                fillColor: Color(0xFFDBC074),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide( color: Color(0xFFB59D59)),
                 ),
                 prefixIcon: Icon(Icons.search),
               ),

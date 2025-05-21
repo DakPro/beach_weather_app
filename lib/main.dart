@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Beach weather app',
+      title: 'Beach Weather App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
       ),
@@ -32,13 +32,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<CurrentWeatherInfo> weatherData = [
-    CurrentWeatherInfo(label: 'Temperature', icon: Icons.thermostat, value: '24°C'),
+    CurrentWeatherInfo(label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
     CurrentWeatherInfo(label: 'Humidity', icon: Icons.water_drop, value: '60%'),
     CurrentWeatherInfo(label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
-    CurrentWeatherInfo(label: 'Rainfall', icon: Icons.beach_access, value: '5 mm'),
+    CurrentWeatherInfo(label: 'Tide', icon: Icons.waves, value: 'low'),
     CurrentWeatherInfo(label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
-    CurrentWeatherInfo(label: 'Pressure', icon: Icons.speed, value: '1015 hPa'),
-    CurrentWeatherInfo(label: 'UV Index', icon: Icons.wb_sunny, value: '3'),
+    CurrentWeatherInfo(label: 'Pressure', icon: Icons.compress, value: '1015 hPa'),
+    CurrentWeatherInfo(label: 'AQI', icon: Icons.speed, value: '3'),
     CurrentWeatherInfo(label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
     CurrentWeatherInfo(label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
     CurrentWeatherInfo(label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background-image.jpg'),
+            image: AssetImage('assets/background_1_v1.png'),
             fit: BoxFit.cover,
           ),
         ),
