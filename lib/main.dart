@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'location_search_page.dart';
+import 'element_pages.dart';
 import 'data_models.dart';
 
 void main() {
@@ -54,12 +55,12 @@ class _HomePageState extends State<HomePage> {
         width: 175,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.70),
+          color: Color(0xFFEBE2B4).withValues(alpha: 0.70),
           // border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Color(0xFF5B5431).withValues(alpha: 0.40),
               blurRadius: 6,
               offset: Offset(0, 3),
             ),
@@ -151,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.symmetric(horizontal: 18),
                     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.70),
+                      color: Color(0xFFD1C37E).withValues(alpha: 0.70),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -170,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             '[Location]',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color(0xFF5B5431),
                               fontSize: 26,
                               fontWeight: FontWeight.bold,
                             ),
@@ -178,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: Icon(Icons.search, color: Colors.black),
+                          child: Icon(Icons.search, color: Color(0xFF5B5431)),
                         ),
                       ],
                     ),
@@ -198,8 +199,9 @@ class _HomePageState extends State<HomePage> {
                       height: 175,
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.black26,
-                        border: Border.all(color: Colors.black),
+                        color: Color(0xFFD1C37E).withValues(alpha: 0.50),
+                        border: Border.all(color: Color(0xFFD1C37E)),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: Center(child: Text('Top page info')),
                     ),
@@ -211,8 +213,9 @@ class _HomePageState extends State<HomePage> {
                       height: 175,
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.black26,
-                        border: Border.all(color: Colors.black),
+                        color: Color(0xFFD1C37E).withValues(alpha: 0.50),
+                        border: Border.all(color: Color(0xFFD1C37E)),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: Center(child: Text('Image')),
                     ),
@@ -225,12 +228,12 @@ class _HomePageState extends State<HomePage> {
               margin: const EdgeInsets.symmetric(horizontal: 10),
               height: 60,
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.70),
+                color: Color(0xFFD1C37E).withValues(alpha: 0.70),
                 // border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black26,
+                    color: Color(0xFF706944).withValues(alpha: 0.70),
                     blurRadius: 6,
                     offset: Offset(0, 3),
                   ),
@@ -240,12 +243,12 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Icon(Icons.try_sms_star_rounded, color: Colors.black),
+                    child: Icon(Icons.try_sms_star_rounded, color: Color(0xFF5B5431)),
                   ),
                   Text(
                     '[Suggestion text...]',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color(0xFF5B5431),
                       fontSize: 20,
                     ),
                   ),
@@ -296,8 +299,9 @@ class InfoContainer extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.black26,
-        border: Border.all(color: Colors.black),
+        color: Color(0xFF74AFB8).withValues(alpha: 0.40),
+        border: Border.all(color: Color(0xFF41A1BE)),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

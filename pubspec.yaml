@@ -37,6 +37,7 @@ dependencies:
   reorderables: ^0.6.0
   geolocator: ^14.0.0
   shared_preferences: ^2.0.15
+  dartpy: ^0.0.5
 
 dev_dependencies:
   flutter_test:
