@@ -36,6 +36,11 @@ final Map<String, LatLong> beaches = {
   "Chesil beach": new LatLong(50.62667,-2.560547)
 };
 
+Future<double> getDistanceToLocation(LatLong pos) async =>
+  getLocationPosition().then((value) =>
+    Geolocator.distanceBetween(value.latitude, value.longitude, pos.latitude, pos.longitude))
+      .catchError((e) => e);
+
 
 // Get current device location
 Future<Position> getLocationPosition() async {
