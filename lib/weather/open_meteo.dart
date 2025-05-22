@@ -5,7 +5,16 @@ void main() async {
   final response = await weather.request(
     latitude: 52.52,
     longitude: 13.41,
-    hourly: {WeatherHourly.temperature_2m},
+    hourly: {
+      WeatherHourly.temperature_2m,
+      WeatherHourly.apparent_temperature,
+      WeatherHourly.pressure_msl,
+      WeatherHourly.precipitation_probability,
+      WeatherHourly.precipitation,
+      WeatherHourly.cloud_cover,
+      WeatherHourly.visibility,
+      WeatherHourly.wind_speed_10m,
+    },
   );
   final data = response.hourlyData[WeatherHourly.temperature_2m]!;
   final currentTemperature = data.values;
