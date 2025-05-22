@@ -215,7 +215,45 @@ class _HomePageState extends State<HomePage> {
                         border: Border.all(color: Color(0xFFD1C37E)),
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: Center(child: Text('Top page info')),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Text("9°C", style: const TextStyle(fontSize: 50)),
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    Text("UV", style: const TextStyle(fontSize: 18)),
+                                    Text("5", style: const TextStyle(fontSize: 18)),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    Icon(Icons.cloudy_snowing),
+                                    Text("11mm", style: const TextStyle(fontSize: 18)),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    Text("WT", style: const TextStyle(fontSize: 18)),
+                                    Text("5°C", style: const TextStyle(fontSize: 18)),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      )
                     ),
                   ),
                   SizedBox(width: 20),
