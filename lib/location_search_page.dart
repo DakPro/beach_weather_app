@@ -1,3 +1,4 @@
+import 'package:beach_weather_app/metadata_manager.dart';
 import 'package:flutter/material.dart';
 
 class LocationSearchPage extends StatelessWidget {
