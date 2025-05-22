@@ -1,3 +1,4 @@
+import 'package:beach_weather_app/metadata_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -180,14 +181,27 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Align(
                           alignment: Alignment.center,
-                          child: Text(
-                            '[Location]',
-                            style: TextStyle(
-                              color: Color(0xFF5B5431),
-                              fontSize: 26,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          child: FutureBuilder<String>( // Use FutureBuilder
+                            future: getLocationName(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState == ConnectionState.waiting) {
+                                return CircularProgressIndicator(); // Show loading indicator
+                              } else if (snapshot.hasError) {
+                                return Text('Error: ${snapshot.error}'); // Show error
+                              } else {
+                                return Text(
+                                  snapshot.data ?? 'Unknown Location', // Display location name
+                                  style: TextStyle(
+                                    color: Color(0xFF5B5431),
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                );
+                              }
+                            },
                           ),
+
+
                         ),
                         Align(
                           alignment: Alignment.centerRight,
