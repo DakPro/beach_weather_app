@@ -91,10 +91,10 @@ daily_sunrise = daily.Variables(1).ValuesInt64AsNumpy()
 daily_sunset = daily.Variables(2).ValuesInt64AsNumpy()
 
 daily_data = {"date": pd.date_range(
-    start = pd.to_datetime(daily.Time(), unit = "s", utc = True),
-    end = pd.to_datetime(daily.TimeEnd(), unit = "s", utc = True),
-    freq = pd.Timedelta(seconds = daily.Interval()),
-    inclusive = "left"
+	start = pd.to_datetime(daily.Time(), unit = "s", utc = True),
+	end = pd.to_datetime(daily.TimeEnd(), unit = "s", utc = True),
+	freq = pd.Timedelta(seconds = daily.Interval()),
+	inclusive = "left"
 )}
 
 daily_data["uv_index_max"] = daily_uv_index_max

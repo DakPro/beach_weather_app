@@ -43,6 +43,8 @@ class _HomePageState extends State<HomePage> {
     CurrentWeatherInfo(label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
     CurrentWeatherInfo(label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
     CurrentWeatherInfo(label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
+    CurrentWeatherInfo(label: 'Temperature', icon: Icons.thermostat, value: '18°C'),
+    CurrentWeatherInfo(label: 'UV Index', icon: Icons.sunny, value: '2'),
   ];
 
   List<Widget> get infoGrid => List.generate(
