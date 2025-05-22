@@ -1,13 +1,13 @@
 
 abstract interface class Weather {
-  int getTemperature();
-  int getWindSpeed();
+  num getTemperature();
+  num getWindSpeed();
 
   // Percentages
-  int getCloudCover();
-  int getHumidity();
+  num getCloudCover();
+  num getHumidity();
 
   // Metrics
-  int getAQI();
-  int getUV();
+  num getAQI();
+  num getUV();
 }
