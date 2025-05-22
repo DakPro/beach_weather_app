@@ -201,8 +201,6 @@ class _HomePageState extends State<HomePage> {
                               }
                             },
                           ),
-
-
                         ),
                         Align(
                           alignment: Alignment.centerRight,
@@ -318,6 +316,16 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 200),
+              child: CarouselView(
+                itemExtent: 100,
+                padding: const EdgeInsets.all(10.0),
+                children: List<Widget>.generate(7, (int index) {
+                  return Center(child: Text('Item $index'));
+                }),
               ),
             ),
             SizedBox(height: 20),
