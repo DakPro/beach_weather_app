@@ -73,6 +73,10 @@ Future<String> getPositionName(double latitude, double longitude) async {
     String? name = place.name;
     if(name!=null)return name;
     name = "";
+    if (place.street != null && place.street!.isNotEmpty){
+      if (name.isNotEmpty) name += ", ";
+      name += "${place.street}";
+    }
     if (place.subLocality != null && place.subLocality!.isNotEmpty) {
       if (name.isNotEmpty) name += ", ";
       name += "${place.subLocality}";
