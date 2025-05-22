@@ -5,6 +5,25 @@ final LocationSettings locationSettings = LocationSettings(
   distanceFilter: 1500
 );
 
+class LatLong {
+  final double latitude;
+  final double longitude;
+  LatLong(this.latitude, this.longitude);
+}
+
+final Map<String, LatLong> setBeaches = {
+  "Brightlingsea Beach": new LatLong(1.012508, 51.805849),
+  "Southwold Beach": new LatLong(1.684303, 52.329237),
+  "Lowestoft Beach": new LatLong(1.743465, 52.463277),
+  "Holkham Beach": new LatLong(0.801903,  52.974779),
+  "Frinton Beach": new LatLong(1.248844,  51.829115),
+  "Wells-next-the-sea Beach": new LatLong(0.850709, 52.973617)
+};
+
+double getDistance(LatLong A, LatLong B) {
+  return Geolocator.distanceBetween(A.latitude, A.longitude, B.latitude, B.longitude);
+}
+
 // Get current device location
 Future<Position> getLocationAsync() async {
   bool hasService = await Geolocator.isLocationServiceEnabled();
@@ -24,7 +43,6 @@ Future<Position> getLocationAsync() async {
   if (permission == LocationPermission.deniedForever) {
     return Future.error("Location permissions are denied forever");
   }
-
   // Permissions are granted, return location
   return await Geolocator.getCurrentPosition();
 }
