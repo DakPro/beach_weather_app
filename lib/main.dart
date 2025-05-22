@@ -33,54 +33,64 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<CurrentWeatherInfo> weatherData = [
-    CurrentWeatherInfo(label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
-    CurrentWeatherInfo(label: 'Humidity', icon: Icons.water_drop, value: '60%'),
-    CurrentWeatherInfo(label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
-    CurrentWeatherInfo(label: 'Tide', icon: Icons.waves, value: 'low'),
-    CurrentWeatherInfo(label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
-    CurrentWeatherInfo(label: 'Pressure', icon: Icons.compress, value: '1015 hPa'),
-    CurrentWeatherInfo(label: 'AQI', icon: Icons.speed, value: '3'),
-    CurrentWeatherInfo(label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
-    CurrentWeatherInfo(label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
-    CurrentWeatherInfo(label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
-    CurrentWeatherInfo(label: 'Temperature', icon: Icons.thermostat, value: '18°C'),
-    CurrentWeatherInfo(label: 'UV Index', icon: Icons.sunny, value: '2'),
+    CurrentWeatherInfo(pageBuilder: () => WavesPage(), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
+    CurrentWeatherInfo(pageBuilder: () => HumidityPage(), label: 'Humidity', icon: Icons.water_drop, value: '60%'),
+    CurrentWeatherInfo(pageBuilder: () => WavesPage(), label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
+    CurrentWeatherInfo(pageBuilder: () => TidePage(), label: 'Tide', icon: Icons.waves, value: 'low'),
+    CurrentWeatherInfo(pageBuilder: () => LocationSearchPage(), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
+    CurrentWeatherInfo(pageBuilder: () => WavesPage(), label: 'Pressure', icon: Icons.compress, value: '1015 hPa'),
+    CurrentWeatherInfo(pageBuilder: () => AQIPage(), label: 'AQI', icon: Icons.speed, value: '3'),
+    CurrentWeatherInfo(pageBuilder: () => SunRiseSetPage(), label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
+    CurrentWeatherInfo(pageBuilder: () => SunRiseSetPage(), label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
+    CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(), label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
+    CurrentWeatherInfo(pageBuilder: () => LocationSearchPage(), label: 'Temperature', icon: Icons.thermostat, value: '18°C'),
+    CurrentWeatherInfo(pageBuilder: () => LocationSearchPage(), label: 'UV Index', icon: Icons.sunny, value: '2'),
   ];
 
   List<Widget> get infoGrid => List.generate(
     weatherData.length,
         (index) {
       final info = weatherData[index];
-      return Container(
-        key: ValueKey(info.label), // Use unique key
-        height: 80,
-        width: 175,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Color(0xFFEBE2B4).withValues(alpha: 0.70),
-          // border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xFF5B5431).withValues(alpha: 0.40),
-              blurRadius: 6,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(info.icon),
-            Text(
-              info.label,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              info.value,
-              style: TextStyle(fontSize: 14),
-            ),
-          ],
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(
+          context,
+          MaterialPageRoute(
+          builder: (context) => info.pageBuilder(),
+          ),
+          );
+          },
+        child: Container(
+          key: ValueKey(info.label), // Use unique key
+          height: 80,
+          width: 175,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Color(0xFFEBE2B4).withValues(alpha: 0.70),
+            // border: Border.all(color: Colors.black),
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF5B5431).withValues(alpha: 0.40),
+                blurRadius: 6,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(info.icon),
+              Text(
+                info.label,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                info.value,
+                style: TextStyle(fontSize: 14),
+              ),
+            ],
+          ),
         ),
       );
     },
