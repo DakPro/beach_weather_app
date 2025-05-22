@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
@@ -44,7 +45,13 @@ Future<double> getDistanceToLocation(LatLong pos) async =>
 
 // Get current device location
 Future<Position> getLocationPosition() async {
-  bool hasService = await Geolocator.isLocationServiceEnabled();
+  bool hasService = false;
+  try {
+    hasService = await Geolocator.isLocationServiceEnabled();
+  } on MissingPluginException {
+    return Future.error("Location services unavailable");
+  }
+
   // Check if location services are enabled.
   if (!hasService) {
     return Future.error("Location services disabled");
