@@ -186,10 +186,11 @@ class _HomePageState extends State<HomePage> {
                             builder: (context, snapshot) {
                               if (snapshot.connectionState == ConnectionState.waiting) {
                                 return CircularProgressIndicator(); // Show loading indicator
-                              } else if (snapshot.hasError) {
-                                return Text('Error: ${snapshot.error}'); // Show error
                               } else {
-                                return Text(
+                                if (snapshot.hasError) {
+                                  print('Error: ${snapshot.error}');
+                                }
+                              return Text(
                                   snapshot.data ?? 'Unknown Location', // Display location name
                                   style: TextStyle(
                                     color: Color(0xFF5B5431),
