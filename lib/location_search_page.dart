@@ -20,26 +20,36 @@ class LocationSearchPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter a location',
-                filled: true,
-                fillColor: Color(0xFFDBC074),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide( color: Color(0xFFB59D59)),
+            Row(
+            children: <Widget>[
+              Expanded(
+                child:TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter a location',
+                    filled: true,
+                    fillColor: Color(0xFFDBC074),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide( color: Color(0xFFB59D59)),
+                    ),
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                  onChanged: (value) {
+                    // TODO: Implement search logic
+                  },
                 ),
-                prefixIcon: Icon(Icons.search),
               ),
-              onChanged: (value) {
-                // TODO: Implement search logic
-              },
+              SizedBox(width: 20,),
+              IconButton.filled(onPressed: updateToCurrentLocation, icon: Icon(Icons.my_location))
+            ],
             ),
-            SizedBox(height: 20),
-            // TODO: Add search results or suggestions
-          ],
+              SizedBox(height: 20),
+              // TODO: Add search results or suggestions
+              Spacer(),
+          ]
         ),
       ),
+
     );
   }
 }
