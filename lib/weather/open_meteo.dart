@@ -6,8 +6,6 @@ void main() async {
     latitude: 52.52,
     longitude: 13.41,
     hourly: {WeatherHourly.temperature_2m},
-    startDate: DateTime(2024, 8, 10),
-    endDate: DateTime(2024, 8, 12),
   );
   final data = response.hourlyData[WeatherHourly.temperature_2m]!;
   final currentTemperature = data.values;
