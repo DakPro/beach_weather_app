@@ -36,16 +36,16 @@ class _HomePageState extends State<HomePage> {
   List<CurrentWeatherInfo> weatherData = [
     CurrentWeatherInfo(pageBuilder: () => WavesPage(), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
     CurrentWeatherInfo(pageBuilder: () => HumidityPage(), label: 'Humidity', icon: Icons.water_drop, value: '60%'),
-    CurrentWeatherInfo(pageBuilder: () => WavesPage(), label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
+    CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(), label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
     CurrentWeatherInfo(pageBuilder: () => TidePage(), label: 'Tide', icon: Icons.waves, value: 'low'),
-    CurrentWeatherInfo(pageBuilder: () => LocationSearchPage(), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
+    CurrentWeatherInfo(pageBuilder: () => VisibilityPage(), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
     CurrentWeatherInfo(pageBuilder: () => WavesPage(), label: 'Pressure', icon: Icons.compress, value: '1015 hPa'),
     CurrentWeatherInfo(pageBuilder: () => AQIPage(), label: 'AQI', icon: Icons.speed, value: '3'),
     CurrentWeatherInfo(pageBuilder: () => SunRiseSetPage(), label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
     CurrentWeatherInfo(pageBuilder: () => SunRiseSetPage(), label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
     CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(), label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
-    CurrentWeatherInfo(pageBuilder: () => LocationSearchPage(), label: 'Temperature', icon: Icons.thermostat, value: '18°C'),
-    CurrentWeatherInfo(pageBuilder: () => LocationSearchPage(), label: 'UV Index', icon: Icons.sunny, value: '2'),
+    CurrentWeatherInfo(pageBuilder: () => TemperaturePage(), label: 'Temperature', icon: Icons.thermostat, value: '18°C'),
+    CurrentWeatherInfo(pageBuilder: () => UVPage(), label: 'UV Index', icon: Icons.sunny, value: '2'),
   ];
 
   List<Widget> get infoGrid => List.generate(
