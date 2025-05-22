@@ -311,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                     child: Icon(Icons.try_sms_star_rounded, color: Color(0xFF5B5431)),
                   ),
                   Text(
-                    '[Suggestion text...]',
+                    'Better dress up warm today!',
                     style: TextStyle(
                       color: Color(0xFF5B5431),
                       fontSize: 20,
