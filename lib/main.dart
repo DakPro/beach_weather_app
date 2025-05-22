@@ -1,4 +1,4 @@
-import 'package:beach_weather_app/weather/metadata_manager.dart';
+import 'package:beach_weather_app/metadata_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
