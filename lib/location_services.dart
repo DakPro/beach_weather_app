@@ -6,6 +6,37 @@ final LocationSettings locationSettings = LocationSettings(
   distanceFilter: 1500
 );
 
+class LatLong {
+  final double latitude;
+  final double longitude;
+  LatLong(this.longitude, this.latitude);
+}
+
+final Map<String, LatLong> beaches = {
+  "Wells-next-the-sea beach": new LatLong(52.973617, 0.850709),
+  "Southwold beach": new LatLong(52.329237,1.684303),
+  "Lowestoft beach": new LatLong(52.463277,1.743465),
+  "Frinton beach": new LatLong(51.829115,1.248844),
+  "Aldeburgh beach": new LatLong(52.151031,1.602664),
+  "Holkham beach": new LatLong(52.974779,0.801903),
+  "Dunwich beach": new LatLong(52.278803,1.633669),
+  "Brancaster beach": new LatLong(52.97427,0.636343),
+  "Walberswick beach": new LatLong( 52.31379,1.670317),
+  "Bournemouth beach": new LatLong(50.719033,-1.85118),
+  "Brighton beach": new LatLong(50.819257,-0.136447),
+  "Bognor Regis beach": new LatLong(50.782011,-0.671951),
+  "Skegness beach": new LatLong(53.142243,0.348072),
+  "Weymouth beach": new LatLong (50.610309,-2.452422),
+  "Fistral beach": new LatLong( 50.416458,-5.100202 ),
+  "Perranporth beach": new LatLong(50.348994,-5.156895),
+  "Scarborough beach": new LatLong( 54.279648,-0.397193 ),
+  "Whitby beach": new LatLong(54.491108,-0.61615),
+  "Kynance Cove": new LatLong(49.97466,-5.231462),
+  "Sennen Cove": new LatLong(50.075581,-5.702987),
+  "Chesil beach": new LatLong(50.62667,-2.560547)
+};
+
+
 // Get current device location
 Future<Position> getLocationPosition() async {
   bool hasService = await Geolocator.isLocationServiceEnabled();
