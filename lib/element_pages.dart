@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 
-class MainElementsPage extends StatelessWidget {
-  const MainElementsPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class WindSpeedPage extends StatelessWidget {
   const WindSpeedPage({super.key});
   @override
