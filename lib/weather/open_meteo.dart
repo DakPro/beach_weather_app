@@ -1,20 +1,28 @@
 import 'package:open_meteo/open_meteo.dart';
 
 Future<OpenMeteo> init(double longitude, double latitude) async {
-  var response = await WeatherApi(temperatureUnit: TemperatureUnit.celsius).request(
-    latitude: latitude,
-    longitude: longitude,
-    hourly: {
-      WeatherHourly.temperature_2m,
-      WeatherHourly.apparent_temperature,
-      WeatherHourly.pressure_msl,
-      WeatherHourly.precipitation_probability,
-      WeatherHourly.precipitation,
-      WeatherHourly.cloud_cover,
-      WeatherHourly.visibility,
-      WeatherHourly.wind_speed_10m,
-    },
-  ).timeout(Duration(seconds: 5));
+  var response = await WeatherApi(
+        temperatureUnit: TemperatureUnit.celsius,
+        windspeedUnit: WindspeedUnit.kmh,
+      )
+      .request(
+        latitude: latitude,
+        longitude: longitude,
+        hourly: {
+          WeatherHourly.temperature_2m,
+          WeatherHourly.apparent_temperature,
+          WeatherHourly.pressure_msl,
+          WeatherHourly.precipitation_probability,
+          WeatherHourly.precipitation,
+          WeatherHourly.cloud_cover,
+          WeatherHourly.visibility,
+          WeatherHourly.wind_speed_10m,
+          WeatherHourly.uv_index,
+        },
+        daily: {WeatherDaily.sunrise, WeatherDaily.sunset},
+        forecastDays: 7,
+      )
+      .timeout(Duration(seconds: 5));
 
   return OpenMeteo(response);
 }
@@ -55,10 +63,30 @@ class OpenMeteo {
   Map<DateTime, num> getWindSpeed() {
     return response.hourlyData[WeatherHourly.wind_speed_10m]!.values;
   }
+
+  // First day is today
+  List<DateTime> getSunrise() {
+    return response.dailyData[WeatherDaily.sunrise]!.values.values
+        .map((x) => DateTime.fromMillisecondsSinceEpoch((x * 1000).toInt()))
+        .toList();
+  }
+
+  List<DateTime> getSunset() {
+    return response.dailyData[WeatherDaily.sunset]!.values.values
+        .map((x) => DateTime.fromMillisecondsSinceEpoch((x * 1000).toInt()))
+        .toList();
+  }
+}
+
+DateTime roundDay(DateTime d) {
+  return DateTime(d.year, d.month, d.day).toUtc();
 }
 
 void main() async {
-  var a = await init(1.0, 1.0);
-  var currentTemperature = a.getTemperature();
-  print(currentTemperature);
+  // All stats are 1 hour behind cus of daylight savings
+  // TODO: Fix daylight savings?
+  // Cambridge time
+  var a = await init(0.0, 52.0);
+  var now = DateTime.now();
+  print(a.getSunset());
 }
