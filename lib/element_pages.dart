@@ -478,7 +478,7 @@ class PrecipitationPage extends StatelessWidget {
                     ],
                   ),
                   child: Text(
-                    'Humidity Information',
+                    'Precipitation Information',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFF122428),

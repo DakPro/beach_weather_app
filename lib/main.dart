@@ -1,6 +1,4 @@
 import 'package:beach_weather_app/metadata_manager.dart';
-import 'package:beach_weather_app/stats/stats_page.dart';
-import 'package:beach_weather_app/stats/graph.dart';
 import 'package:beach_weather_app/weather/open_meteo.dart';
 import 'package:flutter/material.dart';
 import 'package:reorderables/reorderables.dart';
@@ -11,6 +9,23 @@ import 'data_models.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class WeatherDataStored {
+  static final WeatherDataStored _instance = WeatherDataStored._internal();
+  factory WeatherDataStored() { return _instance; }
+  WeatherDataStored._internal();
+  Map? AQI;
+  Map? pres;
+  Map? precp;
+  Map? prec;
+  Map? atemp;
+  Map? temp;
+  Map? vis;
+  Map? cc;
+  Map? windS;
+  List? sunrise;
+  List? sunset;
 }
 
 class MyApp extends StatelessWidget {
@@ -36,34 +51,143 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<CurrentWeatherInfo> weatherData = [
-    CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8 m'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
-    CurrentWeatherInfo(pageBuilder: () => HumidityPage(humidity: '60%'), label: 'Humidity', icon: Icons.water_drop, value: '60%'),
-    CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: '12 km/h'), label: 'Wind Speed', icon: Icons.air, value: '12 km/h'),
-    CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
-    CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: '10 km'), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
-    CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: '1015 hPa'), label: 'Pressure', icon: Icons.compress, value: '1015 hPa'),
-    CurrentWeatherInfo(pageBuilder: () => StatsPage(title: "AQI", description: "AQI is measured...", widgets: [Graph(loadData: initOpenMeteo(1, 1).then((x) => x.getAQI()),)]), label: 'AQI', icon: Icons.speed, value: '3'),
-    CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: '6:15 AM'), label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
-    CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: '7:45 PM'), label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
-    CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: '40%'), label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
-    CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: '18°C'), label: 'Temperature', icon: Icons.thermostat, value: '18°C'),
-    CurrentWeatherInfo(pageBuilder: () => UVPage(uv: '2'), label: 'UV Index', icon: Icons.sunny, value: '2'),
-  ];
+  OpenMeteo? openMeteo;
+  List<CurrentWeatherInfo>? weatherData;
+  String current = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day).toString();
+  @override
+  void initState() {
+    super.initState();
+    loadWeatherData();
+    _loadOrder();
+  }
+  Future<void> loadWeatherData() async {
+    double lat = 52.12, lon = 0.07; // Cambridge coordinates
+    OpenMeteo data = await initOpenMeteo(lon, lat);
+    openMeteo = data;
+
+    Future<Map<DateTime, num>> waitForAQIData() async {
+      while (openMeteo == null || openMeteo!.getAQI().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getAQI();
+    }
+
+    Future<Map<DateTime, num>> waitForTData() async {
+      while (openMeteo == null || openMeteo!.getTemperature().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getTemperature();
+    }
+
+    Future<Map<DateTime, num>> waitForATData() async {
+      while (openMeteo == null || openMeteo!.getApparentTemperature().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getApparentTemperature();
+    }
+
+    Future<Map<DateTime, num>> waitForPressureData() async {
+      while (openMeteo == null || openMeteo!.getPressure().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getPressure();
+    }
+
+    Future<Map<DateTime, num>> waitForPrecData() async {
+      while (openMeteo == null || openMeteo!.getPrecipitation().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getPrecipitation();
+    }
+
+    Future<Map<DateTime, num>> waitForPProbData() async {
+      while (openMeteo == null || openMeteo!.getPrecipitationProbability().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getPrecipitationProbability();
+    }
+
+    Future<Map<DateTime, num>> waitForWSData() async {
+      while (openMeteo == null || openMeteo!.getWindSpeed().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getWindSpeed();
+    }
+
+    Future<Map<DateTime, num>> waitForVisData() async {
+      while (openMeteo == null || openMeteo!.getVisibility().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getVisibility();
+    }
+
+    Future<Map<DateTime, num>> waitForCCData() async {
+      while (openMeteo == null || openMeteo!.getCloudCover().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getCloudCover();
+    }
+
+    Future<List<DateTime>> waitForSunsetData() async {
+      while (openMeteo == null || openMeteo!.getSunset().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getSunset();
+    }
+
+    Future<List<DateTime>> waitForSunriseData() async {
+      while (openMeteo == null || openMeteo!.getSunrise().isEmpty) {
+        await Future.delayed(Duration(milliseconds: 200));
+      }
+      return openMeteo!.getSunrise();
+    }
+
+    Map AQIdata = await waitForAQIData(), tData = await waitForTData(), apparentTData = await waitForATData(), pressureData = await waitForPressureData(), precipitationData = await waitForPrecData(), pProbData = await waitForPProbData(), ccData = await waitForCCData(), visData = await waitForVisData(), windSpeedData = await waitForWSData();
+    List sunriseData = await waitForSunriseData(), sunsetData = await waitForSunsetData();
+    WeatherDataStored().AQI = AQIdata;
+    WeatherDataStored().temp = tData;
+    WeatherDataStored().atemp = apparentTData;
+    WeatherDataStored().pres = pressureData;
+    WeatherDataStored().prec = precipitationData;
+    WeatherDataStored().precp = pProbData;
+    WeatherDataStored().cc = ccData;
+    WeatherDataStored().vis = visData;
+    WeatherDataStored().windS = windSpeedData;
+    WeatherDataStored().sunrise = sunriseData;
+    WeatherDataStored().sunset = sunsetData;
+    List<CurrentWeatherInfo> loadedWeatherData = [
+      CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8 m'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
+      CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: precipitationData, precp: pProbData), label: 'Precipitation', icon: Icons.water_drop, value: '${pProbData.values.first.round()}%'),
+      CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: windSpeedData), label: 'Wind Speed', icon: Icons.air, value: '${windSpeedData.values.first.round()} km/h'),
+      CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
+      CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: visData), label: 'Visibility', icon: Icons.remove_red_eye, value: '${visData.values.first.round()}'),
+      CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: pressureData), label: 'Pressure', icon: Icons.compress, value: '${pressureData.values.first.round()} hPa'),
+      CurrentWeatherInfo(pageBuilder: () => AQIPage(index: AQIdata), label: 'AQI', icon: Icons.speed, value: '${AQIdata.values.first.round()}'),
+      CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: sunsetData), label: 'Sunset', icon: Icons.wb_twilight, value: '${sunsetData[0].hour.toString().padLeft(2, '0')}:${sunsetData[0].minute.toString().padLeft(2, '0')}:${sunsetData[0].second.toString().padLeft(2, '0')}'),
+      CurrentWeatherInfo(pageBuilder: () => SunrisePage(time: sunriseData), label: 'Sunrise', icon: Icons.nights_stay, value: '${sunriseData[0].hour.toString().padLeft(2, '0')}:${sunriseData[0].minute.toString().padLeft(2, '0')}:${sunriseData[0].second.toString().padLeft(2, '0')}'),
+      CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: ccData), label: 'Cloud Cover', icon: Icons.cloud, value: '${ccData.values.first.round()}%'),
+      CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: tData, atemp: apparentTData), label: 'Temperature', icon: Icons.thermostat, value: '${tData.values.first.round()}°C'),
+      CurrentWeatherInfo(pageBuilder: () => UVPage(uv: '2'), label: 'UV Index', icon: Icons.sunny, value: '2'),
+    ];
+
+    setState(() {
+      weatherData = loadedWeatherData;
+    });
+  }
 
   List<Widget> get infoGrid => List.generate(
-    weatherData.length,
+    weatherData!.length,
         (index) {
-      final info = weatherData[index];
+      final info = weatherData![index];
       return GestureDetector(
         onTap: () {
           Navigator.push(
-          context,
-          MaterialPageRoute(
-          builder: (context) => info.pageBuilder(),
-          ),
+            context,
+            MaterialPageRoute(
+              builder: (context) => info.pageBuilder(),
+            ),
           );
-          },
+        },
         child: Container(
           key: ValueKey(info.label), // Use unique key
           height: 80,
@@ -102,15 +226,15 @@ class _HomePageState extends State<HomePage> {
 
   void _onReorder(int oldIndex, int newIndex) {
     setState(() {
-      final item = weatherData.removeAt(oldIndex);
-      weatherData.insert(newIndex, item);
+      final item = weatherData!.removeAt(oldIndex);
+      weatherData!.insert(newIndex, item);
     });
     _saveOrder(); // Save after every reorder
   }
 
   Future<void> _saveOrder() async {
     final prefs = await SharedPreferences.getInstance();
-    List<String> order = weatherData.map((item) => item.label).toList();
+    List<String> order = weatherData!.map((item) => item.label).toList();
     await prefs.setStringList('weather_order', order);
   }
 
@@ -121,7 +245,7 @@ class _HomePageState extends State<HomePage> {
     if (savedOrder != null) {
       // Reorder weatherData based on saved labels
       Map<String, CurrentWeatherInfo> dataMap = {
-        for (var item in weatherData) item.label: item,
+        for (var item in weatherData!) item.label: item,
       };
 
       setState(() {
@@ -131,12 +255,6 @@ class _HomePageState extends State<HomePage> {
             .toList();
       });
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _loadOrder();
   }
 
   @override
@@ -193,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                                 if (snapshot.hasError) {
                                   print('Error: ${snapshot.error}');
                                 }
-                              return Text(
+                                return Text(
                                   snapshot.data ?? 'Unknown Location', // Display location name
                                   style: TextStyle(
                                     color: Color(0xFF5B5431),
@@ -224,52 +342,52 @@ class _HomePageState extends State<HomePage> {
                   Flexible(
                     flex: 1,
                     child: Container(
-                      height: 175,
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFD1C37E).withValues(alpha: 0.50),
-                        border: Border.all(color: Color(0xFFD1C37E)),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Text("9°C", style: const TextStyle(fontSize: 50)),
-                          ),
-                          SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  children: [
-                                    Text("UV", style: const TextStyle(fontSize: 18)),
-                                    Text("5", style: const TextStyle(fontSize: 18)),
-                                  ],
+                        height: 175,
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Color(0xFFD1C37E).withValues(alpha: 0.50),
+                          border: Border.all(color: Color(0xFFD1C37E)),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              child: Text("9°C", style: const TextStyle(fontSize: 50)),
+                            ),
+                            SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Column(
+                                    children: [
+                                      Text("UV", style: const TextStyle(fontSize: 18)),
+                                      Text("5", style: const TextStyle(fontSize: 18)),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  children: [
-                                    Icon(Icons.cloudy_snowing),
-                                    Text("11mm", style: const TextStyle(fontSize: 18)),
-                                  ],
+                                Expanded(
+                                  flex: 1,
+                                  child: Column(
+                                    children: [
+                                      Icon(Icons.cloudy_snowing),
+                                      Text("11mm", style: const TextStyle(fontSize: 18)),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  children: [
-                                    Text("WT", style: const TextStyle(fontSize: 18)),
-                                    Text("5°C", style: const TextStyle(fontSize: 18)),
-                                  ],
+                                Expanded(
+                                  flex: 1,
+                                  child: Column(
+                                    children: [
+                                      Text("WT", style: const TextStyle(fontSize: 18)),
+                                      Text("5°C", style: const TextStyle(fontSize: 18)),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
-                      )
+                              ],
+                            )
+                          ],
+                        )
                     ),
                   ),
                   SizedBox(width: 20),
@@ -279,11 +397,13 @@ class _HomePageState extends State<HomePage> {
                       height: 175,
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Color(0xFFD1C37E).withValues(alpha: 0.50),
+                        image: DecorationImage(
+                          image: AssetImage('assets/sun_drawing.png'),
+                          fit: BoxFit.cover,
+                        ),
                         border: Border.all(color: Color(0xFFD1C37E)),
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: Center(child: Text('Image')),
                     ),
                   ),
                 ],
