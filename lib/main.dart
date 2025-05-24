@@ -1,4 +1,7 @@
 import 'package:beach_weather_app/metadata_manager.dart';
+import 'package:beach_weather_app/stats/stats_page.dart';
+import 'package:beach_weather_app/stats/graph.dart';
+import 'package:beach_weather_app/weather/open_meteo.dart';
 import 'package:flutter/material.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
     CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: '10 km'), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
     CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: '1015 hPa'), label: 'Pressure', icon: Icons.compress, value: '1015 hPa'),
-    CurrentWeatherInfo(pageBuilder: () => AQIPage(index: '3'), label: 'AQI', icon: Icons.speed, value: '3'),
+    CurrentWeatherInfo(pageBuilder: () => StatsPage(title: "AQI", description: "AQI is measured...", widgets: [Graph(loadData: initOpenMeteo(1, 1).then((x) => x.getAQI()),)]), label: 'AQI', icon: Icons.speed, value: '3'),
     CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: '6:15 AM'), label: 'Sunrise', icon: Icons.wb_twilight, value: '6:15 AM'),
     CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: '7:45 PM'), label: 'Sunset', icon: Icons.nights_stay, value: '7:45 PM'),
     CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: '40%'), label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),

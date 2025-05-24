@@ -1,6 +1,6 @@
 import 'package:open_meteo/open_meteo.dart';
 
-Future<OpenMeteo> init(double longitude, double latitude) async {
+Future<OpenMeteo> initOpenMeteo(double longitude, double latitude) async {
   const timeout = Duration(seconds: 5);
 
   var weather = await WeatherApi(
@@ -102,8 +102,9 @@ void main() async {
   // All stats are 1 hour behind cus of daylight savings
   // TODO: Fix daylight savings?
   // Cambridge time
-  var a = await init(0.0, 52.0);
+  var a = await initOpenMeteo(0.13, 52.2);
   var now = DateTime.now();
+  print(now.toUtc());
   print(a.getSunset());
   print(a.getAQI());
 }
