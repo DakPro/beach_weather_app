@@ -57,6 +57,7 @@ class HomePage extends StatefulWidget {
 final DateTime currentDate = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, DateTime.now().hour);
 
 class _HomePageState extends State<HomePage> {
+  String _selectedLocationName = 'Cambridge';
   OpenMeteo? openMeteo;
   List<CurrentWeatherInfo>? weatherData;
   String current = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day).toString();
@@ -82,6 +83,7 @@ class _HomePageState extends State<HomePage> {
     loadWeatherData(52.12, 0.07); // Cambridge coordinates
     _loadOrder();
     _generateDayLabels();
+    loadInitialLocation();
   }
 
   Future<void> loadWeatherData(double lat, double lon) async {
@@ -260,7 +262,7 @@ class _HomePageState extends State<HomePage> {
       final item = weatherData!.removeAt(oldIndex);
       weatherData!.insert(newIndex, item);
     });
-    _saveOrder(); // Save after every reorder
+    _saveOrder();
   }
 
   Future<void> _saveOrder() async {
@@ -300,6 +302,24 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<void> loadInitialLocation() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLocation = prefs.getString('locationName');
+    if (savedLocation != null) {
+      setState(() {
+        _selectedLocationName = savedLocation;
+      });
+    }
+  }
+
+  Future<void> updateLocation(String newLocation) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('locationName', newLocation);
+    setState(() {
+      _selectedLocationName = newLocation;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -333,6 +353,7 @@ class _HomePageState extends State<HomePage> {
                     );
                     if (selectedLocation != null && selectedLocation is String) {
                       LatLong? selectedLocationCoordinates = beachesLocation[selectedLocation];
+                      updateLocation(selectedLocation);
                       // TODO: Fetch correct data from the coordinates
 
                     }
@@ -357,25 +378,13 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Align(
                           alignment: Alignment.center,
-                          child: FutureBuilder<String>( // Use FutureBuilder
-                            future: getLocationName(),
-                            builder: (context, snapshot) {
-                              if (snapshot.connectionState == ConnectionState.waiting) {
-                                return CircularProgressIndicator(); // Show loading indicator
-                              } else {
-                                if (snapshot.hasError) {
-                                  print('Error: ${snapshot.error}');
-                                }
-                                return Text(
-                                  snapshot.data ?? 'Cambridge', // Display location name
-                                  style: TextStyle(
-                                    color: Color(0xFF5B5431),
-                                    fontSize: 26,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                );
-                              }
-                            },
+                          child: Text(
+                            _selectedLocationName,
+                            style: const TextStyle(
+                              color: Color(0xFF5B5431),
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         Align(
@@ -406,9 +415,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Column(
                           children: [
-                            Container(
-                              child: Text('${WeatherDataStored().temp![WeatherDataStored().current].round()}°C', style: const TextStyle(fontSize: 50)),
-                            ),
+                            Text('${WeatherDataStored().temp![WeatherDataStored().current].round()}°C', style: const TextStyle(fontSize: 50)),
                             SizedBox(height: 20),
                             Row(
                               children: [
