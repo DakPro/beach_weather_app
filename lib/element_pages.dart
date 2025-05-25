@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:beach_weather_app/stats/percentage_graph.dart';
 import 'package:beach_weather_app/stats/values_graph.dart';
+import 'package:beach_weather_app/stats/days_graph.dart';
 
 class WindSpeedPage extends StatelessWidget {
-  const WindSpeedPage({super.key, required this.speed});
+  const WindSpeedPage({super.key, required this.speed, required this.current});
   final Map speed;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +73,7 @@ class WindSpeedPage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current Wind Speed: ${speed.values.first.round()} km/h.\n',
+                        text: 'Current Wind Speed: ${speed[current].round()} km/h.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -112,8 +114,9 @@ class WindSpeedPage extends StatelessWidget {
 } // DONE
 
 class PressurePage extends StatelessWidget {
-  const PressurePage({super.key, required this.pressure});
+  const PressurePage({super.key, required this.pressure, required this.current});
   final Map pressure;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,11 +138,11 @@ class PressurePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 44),
+            SizedBox(height: 40),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
-                  height: 90,
+                  height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -164,7 +167,8 @@ class PressurePage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                    height: 460,
+                    padding: const EdgeInsets.all(12.0),
+                    height: 300,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -177,11 +181,22 @@ class PressurePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
-                      'Weather information...',
-                      style: TextStyle(),
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Current MSL Pressure: ${pressure[current].round()} hPa.\n\n',
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF121418),
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(text: 'What is MSL Pressure?\n', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF121418))),
+                          TextSpan(text: 'MSL stands for mean sea level, meaning the MSL pressure is the pressure at the average height of the ocean surface, and is a standard measurement used to track the weather. The atmospheric pressure only has significant variations when increasing or decreasing altitude, so the MSL value should always be around 1013 hPa.\n\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
+                        ],
+                      ),
                     )
-                )
+                ),
               ]
               ),
             ),
@@ -190,7 +205,7 @@ class PressurePage extends StatelessWidget {
       ),
     );
   }
-}
+} // DONE
 
 class WavesPage extends StatelessWidget {
   const WavesPage({super.key, required this.waves});
@@ -298,8 +313,9 @@ class WavesPage extends StatelessWidget {
 } // DONE
 
 class AQIPage extends StatelessWidget {
-  const AQIPage({super.key, required this.index});
+  const AQIPage({super.key, required this.index, required this.current});
   final Map index;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -366,7 +382,7 @@ class AQIPage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current AQI: ${index.values.first.round()}.\n\n',
+                        text: 'Current AQI: ${index[current].round()}.\n\n',
                         style: TextStyle(
                         fontSize: 14,
                         height: 1.5,
@@ -516,8 +532,9 @@ class TidePage extends StatelessWidget {
 } // DONE
 
 class PrecipitationPage extends StatelessWidget {
-  const PrecipitationPage({super.key, required this.prec, required this.precp});
+  const PrecipitationPage({super.key, required this.prec, required this.precp, required this.current});
   final Map prec, precp;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -584,7 +601,7 @@ class PrecipitationPage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current Precipitation: ${prec.values.first.round()} mm.\n',
+                        text: 'Current Precipitation: ${prec[current].round()} mm.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -642,8 +659,9 @@ class PrecipitationPage extends StatelessWidget {
 } // DONE
 
 class CloudCoveragePage extends StatelessWidget {
-  const CloudCoveragePage({super.key, required this.coverage});
+  const CloudCoveragePage({super.key, required this.coverage, required this.current});
   final Map coverage;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -710,7 +728,7 @@ class CloudCoveragePage extends StatelessWidget {
                       ),
                       child: RichText(
                         text: TextSpan(
-                          text: 'Current Cloud Coverage: ${coverage.values.first.round()}%.\n',
+                          text: 'Current Cloud Coverage: ${coverage[current].round()}%.\n',
                           style: TextStyle(
                             fontSize: 14,
                             height: 1.5,
@@ -755,6 +773,10 @@ class SunsetPage extends StatelessWidget {
   final List time;
   @override
   Widget build(BuildContext context) {
+    String nextSunset = '${time[1].day.toString().padLeft(2, '0')}-${time[1].month.toString().padLeft(2, '0')} ${time[1].hour.toString().padLeft(2, '0')}:${time[1].minute.toString().padLeft(2, '0')}';
+    if (DateTime.now().difference(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 18)).isNegative) {
+      nextSunset = '${time[0].day.toString().padLeft(2, '0')}-${time[0].month.toString().padLeft(2, '0')} ${time[0].hour.toString().padLeft(2, '0')}:${time[0].minute.toString().padLeft(2, '0')}';
+    }
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -774,11 +796,11 @@ class SunsetPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 44),
+            SizedBox(height: 40),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
-                  height: 90,
+                  height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -803,7 +825,8 @@ class SunsetPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                    height: 200,
+                    padding: const EdgeInsets.all(12.0),
+                    height: 150,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -816,10 +839,37 @@ class SunsetPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
-                      'Weather information...',
-                      style: TextStyle(),
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Next Sunset: $nextSunset.\n',
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF121418),
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(text: 'Sunset data for the following week can be seen below. For the best experience, make sure to check cloud coverage and visibility as well before going out to see the sunset.\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
+                        ],
+                      ),
                     )
+                ),
+                SizedBox(height: 10),
+                Container(
+                  height: 260,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 6,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: DaysGraph(loadData: { for (var e in time) e : (e.hour + (e.minute / 60)) }, title: 'Sunset Times This Week'),
                 ),
               ]
               ),
@@ -829,13 +879,17 @@ class SunsetPage extends StatelessWidget {
       ),
     );
   }
-}
+} // DONE
 
 class SunrisePage extends StatelessWidget {
   const SunrisePage({super.key, required this.time});
   final List time;
   @override
   Widget build(BuildContext context) {
+    String nextSunrise = '${time[1].day.toString().padLeft(2, '0')}-${time[1].month.toString().padLeft(2, '0')} ${time[1].hour.toString().padLeft(2, '0')}:${time[1].minute.toString().padLeft(2, '0')}';
+    if (DateTime.now().difference(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 4)).isNegative) {
+      nextSunrise = '${time[0].day.toString().padLeft(2, '0')}-${time[0].month.toString().padLeft(2, '0')} ${time[0].hour.toString().padLeft(2, '0')}:${time[0].minute.toString().padLeft(2, '0')}';
+    }
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -855,11 +909,11 @@ class SunrisePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 44),
+            SizedBox(height: 40),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
-                  height: 90,
+                  height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -884,7 +938,8 @@ class SunrisePage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                    height: 460,
+                    padding: const EdgeInsets.all(12.0),
+                    height: 150,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -897,11 +952,38 @@ class SunrisePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
-                      'Weather information...',
-                      style: TextStyle(),
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Next Sunrise: $nextSunrise.\n',
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF121418),
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(text: 'Sunrise data for the following week can be seen below. For the best experience, make sure to check cloud coverage and visibility as well before going out to see the sunrise.\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
+                        ],
+                      ),
                     )
-                )
+                ),
+                SizedBox(height: 10),
+                Container(
+                  height: 260,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 6,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: DaysGraph(loadData: { for (var e in time) e : (e.hour + (e.minute / 60)) }, title: 'Sunrise Times This Week'),
+                ),
               ]
               ),
             ),
@@ -910,11 +992,12 @@ class SunrisePage extends StatelessWidget {
       ),
     );
   }
-}
+} // DONE
 
 class TemperaturePage extends StatelessWidget {
-  const TemperaturePage({super.key, required this.temp, required this.atemp});
+  const TemperaturePage({super.key, required this.temp, required this.atemp, required this.current});
   final Map temp, atemp;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -981,7 +1064,7 @@ class TemperaturePage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current Temperature: ${temp.values.first.round()}°C.\nApparent Temperature: ${atemp.values.first.round()}°C.\n',
+                        text: 'Current Temperature: ${temp[current].round()}°C.\nApparent Temperature: ${atemp[current].round()}°C.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -1062,11 +1145,11 @@ class UVPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 44),
+            SizedBox(height: 40),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
-                  height: 90,
+                  height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -1080,7 +1163,7 @@ class UVPage extends StatelessWidget {
                     ],
                   ),
                   child: Text(
-                    'UV Index Information',
+                    'UV Information',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFF122428),
@@ -1091,7 +1174,8 @@ class UVPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                    height: 460,
+                    padding: const EdgeInsets.all(12.0),
+                    height: 500,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -1104,15 +1188,44 @@ class UVPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
-                      'Weather information...',
-                      style: TextStyle(),
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Current AQI: $uv.\n\n',
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF121418),
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(text: 'What is AQI for?\n', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF121418))),
+                          TextSpan(text: 'The air quality index is a tool for communicating about the outdoor air quality and its effects on health. The higher the AQI value, the greater the level of air pollution and increase in health risks.\n\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
+                          TextSpan(text: 'Good (0 to 50): Air quality is satisfactory, and air pollution poses little or no risk.\n'
+                              'Moderate (51 to 100): Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.\n'
+                              'Unhealthy for Sensitive Groups (101 to 150): Members of sensitive groups may experience health effects. The general public is less likely to be affected.\n'
+                              'Unhealthy (151 to 200): Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.\n'
+                              'Very Unhealthy (201 to 300): The risk of health effects is increased for everyone.\n'
+                              'Hazardous (301 and higher): Health warnings for emergency conditions, everyone is more likely to be affected.', style: TextStyle(fontSize: 12, color: Color(0xFF121418)))
+                        ],
+                      ),
                     )
-                )
+                ),
               ]
               ),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(12),
+        height: 50.0,
+        color: Color(0xFF263644),
+        child: Text('Sourced from: AQI Basics | AirNow.gov. (n.d.). https://www.airnow.gov/aqi/aqi-basics/',
+          style: TextStyle(
+            color: Color(0xFF121418),
+            fontSize: 10,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -1120,8 +1233,9 @@ class UVPage extends StatelessWidget {
 }
 
 class VisibilityPage extends StatelessWidget {
-  const VisibilityPage({super.key, required this.vis});
+  const VisibilityPage({super.key, required this.vis, required this.current});
   final Map vis;
+  final DateTime current;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1188,7 +1302,7 @@ class VisibilityPage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current Visibility: ${(vis.values.first / 1000).round()} km.\n',
+                        text: 'Current Visibility: ${(vis[current] / 1000).round()} km.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
