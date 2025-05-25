@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'location_search_page.dart';
+import 'location_services.dart';
 import 'element_pages.dart';
 import 'data_models.dart';
 
@@ -314,22 +315,27 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 40.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
+                  onTap: () async {
+                    final selectedLocation = await Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => LocationSearchPage(),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            const start = Offset(0.0, 1.0);
-                            const finish = Offset.zero;
-                            final t = Tween(begin: start, end: finish).chain(CurveTween(curve: Curves.ease));
-                            final offsetAnimation = animation.drive(t);
-                            return SlideTransition(position: offsetAnimation, child: child);
-                          }
+                        pageBuilder: (context, animation, secondaryAnimation) => LocationSearchPage(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const start = Offset(0.0, 1.0);
+                          const finish = Offset.zero;
+                          final t = Tween(begin: start, end: finish).chain(CurveTween(curve: Curves.ease));
+                          final offsetAnimation = animation.drive(t);
+                          return SlideTransition(position: offsetAnimation, child: child);
+                        },
                       ),
                     );
+                    if (selectedLocation != null && selectedLocation is String) {
+                      LatLong? selectedLocationCoordinates = beachesLocation[selectedLocation];
+                      // TODO: Fetch correct data from the coordinates
+
+                    }
                   },
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 18),

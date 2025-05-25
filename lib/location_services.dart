@@ -13,7 +13,7 @@ class LatLong {
   LatLong(this.longitude, this.latitude);
 }
 
-final Map<String, LatLong> beaches = {
+final Map<String, LatLong> beachesLocation = {
   "Wells-next-the-sea beach": new LatLong(52.973617, 0.850709),
   "Southwold beach": new LatLong(52.329237,1.684303),
   "Lowestoft beach": new LatLong(52.463277,1.743465),
