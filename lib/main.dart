@@ -78,13 +78,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     weatherData = tempWeatherData;
-    loadWeatherData();
+    loadWeatherData(52.12, 0.07); // Cambridge coordinates
     _loadOrder();
     _generateDayLabels();
   }
 
-  Future<void> loadWeatherData() async {
-    double lat = 52.12, lon = 0.07; // Cambridge coordinates
+  Future<void> loadWeatherData(double lat, double lon) async {
     OpenMeteo data = await initOpenMeteo(lon, lat);
     openMeteo = data;
 
@@ -348,7 +347,7 @@ class _HomePageState extends State<HomePage> {
                                   print('Error: ${snapshot.error}');
                                 }
                                 return Text(
-                                  snapshot.data ?? 'Unknown Location', // Display location name
+                                  snapshot.data ?? 'Cambridge', // Display location name
                                   style: TextStyle(
                                     color: Color(0xFF5B5431),
                                     fontSize: 26,
@@ -388,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             Container(
-                              child: Text('${WeatherDataStored().temp![WeatherDataStored().selectedDay].round()}°C', style: const TextStyle(fontSize: 50)),
+                              child: Text('${WeatherDataStored().temp![WeatherDataStored().current].round()}°C', style: const TextStyle(fontSize: 50)),
                             ),
                             SizedBox(height: 20),
                             Row(
@@ -407,7 +406,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       Icon(Icons.cloudy_snowing),
-                                      Text("${WeatherDataStored().prec![WeatherDataStored().selectedDay].round()} mm", style: const TextStyle(fontSize: 18)),
+                                      Text("${WeatherDataStored().prec![WeatherDataStored().current].round()} mm", style: const TextStyle(fontSize: 18)),
                                     ],
                                   ),
                                 ),
@@ -492,7 +491,7 @@ class _HomePageState extends State<HomePage> {
                         selectedDayIndex = index;
                        WeatherDataStored().selectedDay = WeatherDataStored().current.add(Duration(days: index));
                       });
-                      loadWeatherData();
+                      loadWeatherData(52.12, 0.07);
                     },
                     child: Container(
                       width: 60,

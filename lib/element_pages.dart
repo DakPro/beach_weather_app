@@ -382,7 +382,7 @@ class AQIPage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current AQI: ${index[current].round()}.\n\n',
+                        text: 'Current AQI: ${index[current].round()}.\n',
                         style: TextStyle(
                         fontSize: 14,
                         height: 1.5,
@@ -390,7 +390,7 @@ class AQIPage extends StatelessWidget {
                         color: Color(0xFF121418),
                       ),
                         children: const <TextSpan>[
-                          TextSpan(text: 'What is AQI for?\n', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF121418))),
+                          TextSpan(text: 'What is the AQI for?\n', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF121418))),
                           TextSpan(text: 'The air quality index is a tool for communicating about the outdoor air quality and its effects on health. The higher the AQI value, the greater the level of air pollution and increase in health risks.\n\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
                           TextSpan(text: 'Good (0 to 50): Air quality is satisfactory, and air pollution poses little or no risk.\n'
                           'Moderate (51 to 100): Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.\n'
@@ -1175,7 +1175,7 @@ class UVPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                     padding: const EdgeInsets.all(12.0),
-                    height: 500,
+                    height: 446,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF264864).withValues(alpha: 0.8),
@@ -1190,7 +1190,7 @@ class UVPage extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current AQI: $uv.\n\n',
+                        text: 'Current UV Index: $uv.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -1198,14 +1198,12 @@ class UVPage extends StatelessWidget {
                           color: Color(0xFF121418),
                         ),
                         children: const <TextSpan>[
-                          TextSpan(text: 'What is AQI for?\n', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF121418))),
-                          TextSpan(text: 'The air quality index is a tool for communicating about the outdoor air quality and its effects on health. The higher the AQI value, the greater the level of air pollution and increase in health risks.\n\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
-                          TextSpan(text: 'Good (0 to 50): Air quality is satisfactory, and air pollution poses little or no risk.\n'
-                              'Moderate (51 to 100): Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.\n'
-                              'Unhealthy for Sensitive Groups (101 to 150): Members of sensitive groups may experience health effects. The general public is less likely to be affected.\n'
-                              'Unhealthy (151 to 200): Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.\n'
-                              'Very Unhealthy (201 to 300): The risk of health effects is increased for everyone.\n'
-                              'Hazardous (301 and higher): Health warnings for emergency conditions, everyone is more likely to be affected.', style: TextStyle(fontSize: 12, color: Color(0xFF121418)))
+                          TextSpan(text: 'What is the UV index for?\n', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF121418))),
+                          TextSpan(text: 'The UV index is a measure of how strong the Sun\'s UV rays are. The higher this number is, the less time it will take for the Sun to damage your skin, so it indicates an increased risk of sunburn, which can cause skin cancer in the long term. It is recommended to stay in the shade and wear protective clothing if this index is too high, as well as use sunscreen with an SPF of at least 30 (preferably 50).\n\n', style: TextStyle(fontSize: 12, color: Color(0xFF121418))),
+                          TextSpan(text: 'UV 0-2: Low level, sun protection is not needed, but the lack of sunlight may not be ideal for going to the beach.\n'
+                              'UV 3-7: Moderate level, sun protection should be applied (especially by people with more sensitive skin), but these are great conditions for enjoying a day at the beach.\n'
+                              'UV 8-9: High level, everyone should apply sun protection, and consider limiting the time spent in direct sunlight.\n'
+                              'UV 10+: Extremely high UV, it is better to stay inside.', style: TextStyle(fontSize: 12, color: Color(0xFF121418)))
                         ],
                       ),
                     )
@@ -1231,7 +1229,7 @@ class UVPage extends StatelessWidget {
       ),
     );
   }
-}
+} // DONE
 
 class VisibilityPage extends StatelessWidget {
   const VisibilityPage({super.key, required this.vis, required this.current});
