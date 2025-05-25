@@ -15,17 +15,17 @@ class WeatherDataStored {
   static final WeatherDataStored _instance = WeatherDataStored._internal();
   factory WeatherDataStored() { return _instance; }
   WeatherDataStored._internal();
-  Map? AQI;
-  Map? pres;
-  Map? precp;
-  Map? prec;
-  Map? atemp;
-  Map? temp;
-  Map? vis;
-  Map? cc;
-  Map? windS;
-  List? sunrise;
-  List? sunset;
+  Map? AQI = {currentDate:30};
+  Map? temp = {currentDate:40};
+  Map? atemp = {currentDate:14};
+  Map? pres = {currentDate:1024};
+  Map? prec = {currentDate:11};
+  Map? precp = {currentDate:60};
+  Map? cc = {currentDate:40};
+  Map? vis = {currentDate:10};
+  Map? windS = {currentDate:10};
+  List? sunrise = [currentDate];
+  List? sunset = [currentDate];
 }
 
 class MyApp extends StatelessWidget {
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   List<CurrentWeatherInfo>? weatherData;
   String current = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day).toString();
   List<CurrentWeatherInfo> tempWeatherData = [
-    CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8 m'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
+    CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
     CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: {currentDate:11}, precp: {currentDate:60}), label: 'Precipitation', icon: Icons.water_drop, value: '20%'),
     CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: {currentDate:10}), label: 'Wind Speed', icon: Icons.air, value: '6 km/h'),
     CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
     WeatherDataStored().sunset = sunsetData;
 
     List<CurrentWeatherInfo> loadedWeatherData = [
-      CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8 m'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
+      CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
       CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: precipitationData, precp: pProbData), label: 'Precipitation', icon: Icons.water_drop, value: '${pProbData.values.first.round()}%'),
       CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: windSpeedData), label: 'Wind Speed', icon: Icons.air, value: '${windSpeedData.values.first.round()} km/h'),
       CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
@@ -372,7 +372,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             Container(
-                              child: Text("9°C", style: const TextStyle(fontSize: 50)),
+                              child: Text('${WeatherDataStored().temp!.values.first.round()}°C', style: const TextStyle(fontSize: 50)),
                             ),
                             SizedBox(height: 20),
                             Row(
@@ -382,7 +382,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       Text("UV", style: const TextStyle(fontSize: 18)),
-                                      Text("5", style: const TextStyle(fontSize: 18)),
+                                      Text("2", style: const TextStyle(fontSize: 18)),
                                     ],
                                   ),
                                 ),
@@ -391,7 +391,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       Icon(Icons.cloudy_snowing),
-                                      Text("11mm", style: const TextStyle(fontSize: 18)),
+                                      Text("${WeatherDataStored().prec!.values.first.round()} mm", style: const TextStyle(fontSize: 18)),
                                     ],
                                   ),
                                 ),
@@ -429,7 +429,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),
               height: 60,
