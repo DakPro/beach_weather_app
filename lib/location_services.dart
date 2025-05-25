@@ -10,7 +10,7 @@ final LocationSettings locationSettings = LocationSettings(
 class LatLong {
   final double latitude;
   final double longitude;
-  LatLong(this.longitude, this.latitude);
+  LatLong(this.latitude, this.longitude);
 }
 
 final Map<String, LatLong> beachesLocation = {
