@@ -27,6 +27,7 @@ class WeatherDataStored {
   Map? windS = {currentDate:10};
   List? sunrise = [currentDate];
   List? sunset = [currentDate];
+  DateTime? current = currentDate;
 }
 
 class MyApp extends StatelessWidget {
@@ -59,16 +60,16 @@ class _HomePageState extends State<HomePage> {
   String current = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day).toString();
   List<CurrentWeatherInfo> tempWeatherData = [
     CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
-    CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: {currentDate:11}, precp: {currentDate:60}), label: 'Precipitation', icon: Icons.water_drop, value: '20%'),
-    CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: {currentDate:10}), label: 'Wind Speed', icon: Icons.air, value: '6 km/h'),
+    CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: {currentDate:11}, precp: {currentDate:60}, current: currentDate), label: 'Precipitation', icon: Icons.water_drop, value: '20%'),
+    CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: {currentDate:10}, current: currentDate), label: 'Wind Speed', icon: Icons.air, value: '6 km/h'),
     CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
-    CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: {currentDate:10}), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
-    CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: {currentDate:1024}), label: 'Pressure', icon: Icons.compress, value: '1024 hPa'),
-    CurrentWeatherInfo(pageBuilder: () => AQIPage(index: {currentDate:30}), label: 'AQI', icon: Icons.speed, value: '35'),
+    CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: {currentDate:10}, current: currentDate), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
+    CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: {currentDate:1024}, current: currentDate), label: 'Pressure', icon: Icons.compress, value: '1024 hPa'),
+    CurrentWeatherInfo(pageBuilder: () => AQIPage(index: {currentDate:30}, current: currentDate), label: 'AQI', icon: Icons.speed, value: '35'),
     CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: [currentDate]), label: 'Sunset', icon: Icons.wb_twilight, value: '19:26'),
     CurrentWeatherInfo(pageBuilder: () => SunrisePage(time: [currentDate]), label: 'Sunrise', icon: Icons.nights_stay, value: '05:47'),
-    CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: {currentDate:40}), label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
-    CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: {currentDate:18}, atemp: {currentDate:14}), label: 'Temperature', icon: Icons.thermostat, value: '16°C'),
+    CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: {currentDate:40}, current: currentDate), label: 'Cloud Cover', icon: Icons.cloud, value: '40%'),
+    CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: {currentDate:18}, atemp: {currentDate:14}, current: currentDate), label: 'Temperature', icon: Icons.thermostat, value: '16°C'),
     CurrentWeatherInfo(pageBuilder: () => UVPage(uv: '2'), label: 'UV Index', icon: Icons.sunny, value: '2'),
   ];
 
@@ -165,6 +166,7 @@ class _HomePageState extends State<HomePage> {
 
     Map AQIdata = await waitForAQIData(), tData = await waitForTData(), apparentTData = await waitForATData(), pressureData = await waitForPressureData(), precipitationData = await waitForPrecData(), pProbData = await waitForPProbData(), ccData = await waitForCCData(), visData = await waitForVisData(), windSpeedData = await waitForWSData();
     List sunriseData = await waitForSunriseData(), sunsetData = await waitForSunsetData();
+    DateTime current = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, DateTime.now().hour);
     WeatherDataStored().AQI = AQIdata;
     WeatherDataStored().temp = tData;
     WeatherDataStored().atemp = apparentTData;
@@ -176,19 +178,20 @@ class _HomePageState extends State<HomePage> {
     WeatherDataStored().windS = windSpeedData;
     WeatherDataStored().sunrise = sunriseData;
     WeatherDataStored().sunset = sunsetData;
+    WeatherDataStored().current = current;
 
     List<CurrentWeatherInfo> loadedWeatherData = [
       CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
-      CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: precipitationData, precp: pProbData), label: 'Precipitation', icon: Icons.water_drop, value: '${pProbData.values.first.round()}%'),
-      CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: windSpeedData), label: 'Wind Speed', icon: Icons.air, value: '${windSpeedData.values.first.round()} km/h'),
+      CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: precipitationData, precp: pProbData, current: current), label: 'Precipitation', icon: Icons.water_drop, value: '${pProbData[current].round()}%'),
+      CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: windSpeedData, current: current), label: 'Wind Speed', icon: Icons.air, value: '${windSpeedData[current].round()} km/h'),
       CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
-      CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: visData), label: 'Visibility', icon: Icons.remove_red_eye, value: '${(visData.values.first / 1000).round()} km'),
-      CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: pressureData), label: 'Pressure', icon: Icons.compress, value: '${pressureData.values.first.round()} hPa'),
-      CurrentWeatherInfo(pageBuilder: () => AQIPage(index: AQIdata), label: 'AQI', icon: Icons.speed, value: '${AQIdata.values.first.round()}'),
+      CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: visData, current: current), label: 'Visibility', icon: Icons.remove_red_eye, value: '${(visData[current] / 1000).round()} km'),
+      CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: pressureData, current: current), label: 'Pressure', icon: Icons.compress, value: '${pressureData[current].round()} hPa'),
+      CurrentWeatherInfo(pageBuilder: () => AQIPage(index: AQIdata, current: current), label: 'AQI', icon: Icons.speed, value: '${AQIdata[current].round()}'),
       CurrentWeatherInfo(pageBuilder: () => SunsetPage(time: sunsetData), label: 'Sunset', icon: Icons.wb_twilight, value: '${sunsetData[0].hour.toString().padLeft(2, '0')}:${sunsetData[0].minute.toString().padLeft(2, '0')}'),
       CurrentWeatherInfo(pageBuilder: () => SunrisePage(time: sunriseData), label: 'Sunrise', icon: Icons.nights_stay, value: '${sunriseData[0].hour.toString().padLeft(2, '0')}:${sunriseData[0].minute.toString().padLeft(2, '0')}'),
-      CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: ccData), label: 'Cloud Cover', icon: Icons.cloud, value: '${ccData.values.first.round()}%'),
-      CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: tData, atemp: apparentTData), label: 'Temperature', icon: Icons.thermostat, value: '${tData.values.first.round()}°C'),
+      CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: ccData, current: current), label: 'Cloud Cover', icon: Icons.cloud, value: '${ccData[current].round()}%'),
+      CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: tData, atemp: apparentTData, current: current), label: 'Temperature', icon: Icons.thermostat, value: '${tData[current].round()}°C'),
       CurrentWeatherInfo(pageBuilder: () => UVPage(uv: '2'), label: 'UV Index', icon: Icons.sunny, value: '2'),
     ];
 
@@ -386,7 +389,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             Container(
-                              child: Text('${WeatherDataStored().temp!.values.first.round()}°C', style: const TextStyle(fontSize: 50)),
+                              child: Text('${WeatherDataStored().temp![WeatherDataStored().current].round()}°C', style: const TextStyle(fontSize: 50)),
                             ),
                             SizedBox(height: 20),
                             Row(
@@ -405,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       Icon(Icons.cloudy_snowing),
-                                      Text("${WeatherDataStored().prec!.values.first.round()} mm", style: const TextStyle(fontSize: 18)),
+                                      Text("${WeatherDataStored().prec![WeatherDataStored().current].round()} mm", style: const TextStyle(fontSize: 18)),
                                     ],
                                   ),
                                 ),
