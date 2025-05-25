@@ -1,6 +1,7 @@
 import 'package:beach_weather_app/metadata_manager.dart';
 import 'package:beach_weather_app/weather/open_meteo.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'location_search_page.dart';
@@ -77,6 +78,7 @@ class _HomePageState extends State<HomePage> {
     weatherData = tempWeatherData;
     loadWeatherData();
     _loadOrder();
+    _generateDayLabels();
   }
 
   Future<void> loadWeatherData() async {
@@ -277,6 +279,18 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  int selectedDayIndex = 0;
+  List<String> dayLabels = [];
+
+  void _generateDayLabels() {
+    final now = DateTime.now();
+    dayLabels = List.generate(7, (index) {
+      if (index == 0) return 'Today';
+      final date = now.add(Duration(days: index));
+      return DateFormat('E').format(date);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -461,14 +475,49 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 200),
-              child: CarouselView(
-                itemExtent: 100,
-                padding: const EdgeInsets.all(10.0),
-                children: List<Widget>.generate(7, (int index) {
-                  return Center(child: Text('Item $index'));
-                }),
+            SizedBox(height: 20),
+            SizedBox(
+              height: 125,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                itemCount: dayLabels.length,
+                itemBuilder: (context, index) {
+                  final isSelected = index == selectedDayIndex;
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedDayIndex = index;
+                      });
+                    },
+                    child: Container(
+                      width: 60,
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(
+                        color: isSelected ? Color(0xFFDAC872).withValues(alpha: 0.70) : Color(0xFFEBE2B4).withValues(alpha: 0.70),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: isSelected
+                            ? [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 6,
+                            offset: Offset(0, 3),
+                          )
+                        ]
+                            : [],
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        dayLabels[index],
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight:
+                          isSelected ? FontWeight.bold : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             SizedBox(height: 20),
@@ -483,59 +532,9 @@ class _HomePageState extends State<HomePage> {
                 children: infoGrid,
               ),
             ),
-            SizedBox(height: 10),
-            Column(
-              children: containerData.map((data) {
-                return InfoContainer(
-                  day: data.day,
-                  temperatures: data.temperatures,
-                );
-              }).toList(),
-            ),
           ],
         ),
       ),
     );
   }
 }
-
-class InfoContainer extends StatelessWidget {
-  final String day;
-  final List<int> temperatures;
-
-  const InfoContainer({
-    super.key,
-    required this.day,
-    required this.temperatures,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Color(0xFF74AFB8).withValues(alpha: 0.40),
-        border: Border.all(color: Color(0xFF41A1BE)),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(day, style: const TextStyle(fontSize: 18)),
-          Text(temperatures.toString(), style: const TextStyle(fontSize: 18)),
-        ],
-      ),
-    );
-  }
-}
-
-final List<NextDaysWeatherInfo> containerData = [
-  NextDaysWeatherInfo(day: 'Monday', temperatures: [1,2,3]),
-  NextDaysWeatherInfo(day: 'Tuesday', temperatures: [2,3,4]),
-  NextDaysWeatherInfo(day: 'Wednesday', temperatures: [3,4,5]),
-  NextDaysWeatherInfo(day: 'Thursday', temperatures: [4,5,6]),
-  NextDaysWeatherInfo(day: 'Friday', temperatures: [5,6,7]),
-  NextDaysWeatherInfo(day: 'Saturday', temperatures: [6,7,8]),
-  NextDaysWeatherInfo(day: 'Sunday', temperatures: [7,8,9]),
-];
