@@ -184,10 +184,10 @@ class _HomePageState extends State<HomePage> {
     WeatherDataStored().sunset = sunsetData;
 
     List<CurrentWeatherInfo> loadedWeatherData = [
-      CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: WeatherDataStored().waveHeight?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]), label: 'Waves', icon: Icons.tsunami, value: '${WeatherDataStored().waveHeight?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]} m'),
+      CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: WeatherDataStored().waveHeight?[0]), label: 'Waves', icon: Icons.tsunami, value: '${WeatherDataStored().waveHeight?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]} m'),
       CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: precipitationData, precp: pProbData, current: WeatherDataStored().current), label: 'Precipitation', icon: Icons.water_drop, value: '${pProbData[WeatherDataStored().selectedDay].round()}%'),
       CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: windSpeedData, current: WeatherDataStored().current), label: 'Wind Speed', icon: Icons.air, value: '${windSpeedData[WeatherDataStored().selectedDay].round()} km/h'),
-      CurrentWeatherInfo(pageBuilder: () => TidePage(tide: WeatherDataStored().tide?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]), label: 'Tide', icon: Icons.waves, value: '${WeatherDataStored().tide?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]}'),
+      CurrentWeatherInfo(pageBuilder: () => TidePage(tide: WeatherDataStored().tide?[0]), label: 'Tide', icon: Icons.waves, value: '${WeatherDataStored().tide?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]}'),
       CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: visData, current: WeatherDataStored().current), label: 'Visibility', icon: Icons.remove_red_eye, value: '${(visData[WeatherDataStored().selectedDay] / 1000).round()} km'),
       CurrentWeatherInfo(pageBuilder: () => PressurePage(pressure: pressureData, current: WeatherDataStored().current), label: 'Pressure', icon: Icons.compress, value: '${pressureData[WeatherDataStored().selectedDay].round()} hPa'),
       CurrentWeatherInfo(pageBuilder: () => AQIPage(index: AQIdata, current: WeatherDataStored().current), label: 'AQI', icon: Icons.speed, value: '${AQIdata[WeatherDataStored().selectedDay].round()}'),
@@ -195,7 +195,7 @@ class _HomePageState extends State<HomePage> {
       CurrentWeatherInfo(pageBuilder: () => SunrisePage(time: sunriseData), label: 'Sunrise', icon: Icons.nights_stay, value: '${sunriseData[((WeatherDataStored().selectedDay).difference(WeatherDataStored().current)).inDays].hour.toString().padLeft(2, '0')}:${sunriseData[((WeatherDataStored().selectedDay).difference(WeatherDataStored().current)).inDays].minute.toString().padLeft(2, '0')}'),
       CurrentWeatherInfo(pageBuilder: () => CloudCoveragePage(coverage: ccData, current: WeatherDataStored().current), label: 'Cloud Cover', icon: Icons.cloud, value: '${ccData[WeatherDataStored().selectedDay].round()}%'),
       CurrentWeatherInfo(pageBuilder: () => TemperaturePage(temp: tData, atemp: apparentTData, current: WeatherDataStored().current), label: 'Temperature', icon: Icons.thermostat, value: '${tData[WeatherDataStored().selectedDay].round()}°C'),
-      CurrentWeatherInfo(pageBuilder: () => UVPage(uv: WeatherDataStored().UV?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]), label: 'UV Index', icon: Icons.sunny, value: '${WeatherDataStored().UV?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]}'),
+      CurrentWeatherInfo(pageBuilder: () => UVPage(uv: WeatherDataStored().UV?[0]), label: 'UV Index', icon: Icons.sunny, value: '${WeatherDataStored().UV?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]}'),
     ];
 
     setState(() {
