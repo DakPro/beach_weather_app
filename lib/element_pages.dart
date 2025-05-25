@@ -1210,6 +1210,7 @@ class UVPage extends StatelessWidget {
                       ),
                     )
                 ),
+                SizedBox(height: 30),
               ]
               ),
             ),
@@ -1218,9 +1219,9 @@ class UVPage extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
-        height: 50.0,
+        height: 80.0,
         color: Color(0xFF263644),
-        child: Text('Sourced from: AQI Basics | AirNow.gov. (n.d.). https://www.airnow.gov/aqi/aqi-basics/',
+        child: Text('Sourced from: The UV index and sunburn risk. (2024, December 5). Cancer Research UK. https://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/the-uv-index-and-sunburn-risk',
           style: TextStyle(
             color: Color(0xFF121418),
             fontSize: 10,
