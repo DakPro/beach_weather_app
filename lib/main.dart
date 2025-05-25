@@ -1,3 +1,4 @@
+import 'package:beach_weather_app/weather/interface.dart';
 import 'package:beach_weather_app/weather/open_meteo.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -17,10 +18,10 @@ class WeatherDataStored {
   factory WeatherDataStored() { return _instance; }
   WeatherDataStored._internal();
   Map? AQI = {currentDate:30};
-  Map? temp = {currentDate:40};
+  Map? temp = {currentDate:18};
   Map? atemp = {currentDate:14};
   Map? pres = {currentDate:1024};
-  Map? prec = {currentDate:11};
+  Map? prec = {currentDate:0};
   Map? precp = {currentDate:60};
   Map? cc = {currentDate:40};
   Map? vis = {currentDate:10};
@@ -32,6 +33,7 @@ class WeatherDataStored {
   List? waveHeight = ['0.3', '0.8', '0.5', '0.4', '1.2', '0.8', '0.2'];
   DateTime current = currentDate;
   DateTime selectedDay = currentDate;
+  String suggestion = 'Have a nice day!';
 }
 
 class MyApp extends StatelessWidget {
@@ -57,6 +59,7 @@ class HomePage extends StatefulWidget {
 }
 
 final DateTime currentDate = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, DateTime.now().hour);
+final List<String> suggestions = ['Great time to go to the beach!', 'Consider going on another day.', 'It is too cold to swim in the sea.', 'It is too hot to stay in the sun.'];
 
 class _HomePageState extends State<HomePage> {
   String _selectedLocationName = 'Cambridge';
@@ -65,7 +68,7 @@ class _HomePageState extends State<HomePage> {
   String current = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day).toString();
   List<CurrentWeatherInfo> tempWeatherData = [
     CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: '0.8'), label: 'Waves', icon: Icons.tsunami, value: '0.8 m'),
-    CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: {currentDate:11}, precp: {currentDate:60}, current: currentDate), label: 'Precipitation', icon: Icons.water_drop, value: '20%'),
+    CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: {currentDate:0}, precp: {currentDate:60}, current: currentDate), label: 'Precipitation', icon: Icons.water_drop, value: '20%'),
     CurrentWeatherInfo(pageBuilder: () => WindSpeedPage(speed: {currentDate:10}, current: currentDate), label: 'Wind Speed', icon: Icons.air, value: '6 km/h'),
     CurrentWeatherInfo(pageBuilder: () => TidePage(tide: 'low'), label: 'Tide', icon: Icons.waves, value: 'low'),
     CurrentWeatherInfo(pageBuilder: () => VisibilityPage(vis: {currentDate:10}, current: currentDate), label: 'Visibility', icon: Icons.remove_red_eye, value: '10 km'),
@@ -182,6 +185,16 @@ class _HomePageState extends State<HomePage> {
     WeatherDataStored().windS = windSpeedData;
     WeatherDataStored().sunrise = sunriseData;
     WeatherDataStored().sunset = sunsetData;
+
+    if(WeatherDataStored().temp![WeatherDataStored().current] < 15) {
+      WeatherDataStored().suggestion = suggestions[2];
+    } else if(WeatherDataStored().temp![WeatherDataStored().current] >= 15 && WeatherDataStored().temp![WeatherDataStored().current] < 25) {
+      WeatherDataStored().suggestion = suggestions[1];
+    } else if(WeatherDataStored().temp![WeatherDataStored().current] >= 25 && WeatherDataStored().temp![WeatherDataStored().current] < 35) {
+      WeatherDataStored().suggestion = suggestions[0];
+    } else {
+      WeatherDataStored().suggestion = suggestions[3];
+    }
 
     List<CurrentWeatherInfo> loadedWeatherData = [
       CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: WeatherDataStored().waveHeight?[0]), label: 'Waves', icon: Icons.tsunami, value: '${WeatherDataStored().waveHeight?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]} m'),
@@ -443,7 +456,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       Text("WT", style: const TextStyle(fontSize: 18)),
-                                      Text("12°C", style: const TextStyle(fontSize: 18)),
+                                      Text("9°C", style: const TextStyle(fontSize: 18)),
                                     ],
                                   ),
                                 ),
@@ -495,7 +508,7 @@ class _HomePageState extends State<HomePage> {
                     child: Icon(Icons.try_sms_star_rounded, color: Color(0xFF5B5431)),
                   ),
                   Text(
-                    'Better dress up warm today!',
+                    WeatherDataStored().suggestion,
                     style: TextStyle(
                       color: Color(0xFF5B5431),
                       fontSize: 20,
