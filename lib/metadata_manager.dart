@@ -1,6 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'location_services.dart' show getLocationPosition, getPositionName;
+import 'location_services.dart' show getPositionName, getCurrentLocation;
 
 final String NoLocationSelectedMessage = "no location selected";
 final locationPreference = "location";
@@ -21,8 +21,7 @@ Future<String> getLocationName() async {
 
 Future<String> updateToCurrentLocation() async {
   final prefs = await SharedPreferences.getInstance();
-  Position position = await getLocationPosition();
-  String positionName = await getPositionName(position.latitude, position.longitude);
+  String positionName = await getPositionName(await getCurrentLocation());
   prefs.setString(locationPreference, positionName);
   return positionName;
 }

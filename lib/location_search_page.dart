@@ -67,6 +67,38 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
     }
   }
 
+  void updateToCurrentLocation() async {
+    try {
+      final currentLocation = await getCurrentLocation();
+      final String? nearestBeach = findNearestBeach(
+        currentLocation.latitude,
+        currentLocation.longitude,
+        beachesLocation, // Pass your beaches map here
+      );
+
+      if (nearestBeach != null) {
+        _controller.text = nearestBeach;
+        _controller.selection = TextSelection.fromPosition(
+            TextPosition(offset: _controller.text.length));
+        setState(() {
+          query = nearestBeach;
+          suggestions = []; // Clear suggestions after setting the text
+        });
+        FocusScope.of(context).unfocus(); // Dismiss keyboard
+        saveSearch(nearestBeach);
+        Navigator.pop(context, nearestBeach); // Navigate back with the selected beach
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('No nearby beaches found.')),
+        );
+      }
+        } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error getting location: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
