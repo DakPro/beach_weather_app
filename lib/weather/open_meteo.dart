@@ -3,6 +3,7 @@ import 'package:open_meteo/open_meteo.dart';
 Future<OpenMeteo> initOpenMeteo(double longitude, double latitude) async {
   const timeout = Duration(seconds: 5);
 
+  // Get weather information from OpenMeteo API
   var weather = await WeatherApi(
         temperatureUnit: TemperatureUnit.celsius,
         windspeedUnit: WindspeedUnit.kmh,
@@ -26,6 +27,8 @@ Future<OpenMeteo> initOpenMeteo(double longitude, double latitude) async {
       )
       .timeout(timeout);
 
+  // AQI has a separate API since there are different ways of measuring AQI
+  // Use the US AQI since it's standard
   var aqi = await AirQualityApi()
       .request(
         latitude: latitude,
@@ -43,6 +46,7 @@ class OpenMeteo {
 
   OpenMeteo(this.weather, this.aqi);
 
+  // Map times to numbers to get hourly data
   Map<DateTime, num> getTemperature() {
     return weather.hourlyData[WeatherHourly.temperature_2m]!.values;
   }
@@ -75,7 +79,8 @@ class OpenMeteo {
     return weather.hourlyData[WeatherHourly.wind_speed_10m]!.values;
   }
 
-  // First day is today
+  // First item is today's value
+  // Keep items in list since it's daily rather than hourly
   List<DateTime> getSunrise() {
     return weather.dailyData[WeatherDaily.sunrise]!.values.values
         .map((x) => DateTime.fromMillisecondsSinceEpoch((x * 1000).toInt()))
