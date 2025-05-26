@@ -1,4 +1,3 @@
-import 'package:beach_weather_app/weather/interface.dart';
 import 'package:beach_weather_app/weather/open_meteo.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
