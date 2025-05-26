@@ -448,7 +448,14 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             Text('${WeatherDataStored().temp![WeatherDataStored().current].round()}°C', style: const TextStyle(fontSize: 50)),
-                            SizedBox(height: 20),
+                            SizedBox(
+                              height: 20, // Example height, adjust as needed
+                              child: Divider(
+                                color: Colors.black,
+                                thickness: 1,
+                                height: 20,
+                              ),
+                            ),
                             Row(
                               children: [
                                 Expanded(
@@ -460,6 +467,14 @@ class _HomePageState extends State<HomePage> {
                                     ],
                                   ),
                                 ),
+                                SizedBox(
+                                  height: 60, // Example height, adjust as needed
+                                  child: VerticalDivider(
+                                    color: Colors.black,
+                                    thickness: 1,
+                                    width: 10,
+                                  ),
+                                ),
                                 Expanded(
                                   flex: 1,
                                   child: Column(
@@ -467,6 +482,14 @@ class _HomePageState extends State<HomePage> {
                                       Icon(Icons.cloudy_snowing),
                                       Text("${WeatherDataStored().prec![WeatherDataStored().current].round()} mm", style: const TextStyle(fontSize: 18)),
                                     ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 60, // Example height, adjust as needed
+                                  child: VerticalDivider(
+                                    color: Colors.black,
+                                    thickness: 1,
+                                    width: 10,
                                   ),
                                 ),
                                 Expanded(
