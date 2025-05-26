@@ -254,7 +254,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
         child: Container(
-          key: ValueKey(info.label), // Use unique key
+          key: ValueKey(info.label), // use unique key
           height: 80,
           width: 175,
           alignment: Alignment.center,
@@ -449,9 +449,9 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text('${WeatherDataStored().temp![WeatherDataStored().current].round()}°C', style: const TextStyle(fontSize: 50)),
                             SizedBox(
-                              height: 20, // Example height, adjust as needed
+                              height: 20, // example height, adjust as needed
                               child: Divider(
-                                color: Colors.black,
+                                color: Color(0xFF8C824D),
                                 thickness: 1,
                                 height: 20,
                               ),
@@ -468,9 +468,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 60, // Example height, adjust as needed
+                                  height: 60, // example height, adjust as needed
                                   child: VerticalDivider(
-                                    color: Colors.black,
+                                    color: Color(0xFF8C824D),
                                     thickness: 1,
                                     width: 10,
                                   ),
@@ -485,9 +485,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 60, // Example height, adjust as needed
+                                  height: 60, // example height, adjust as needed
                                   child: VerticalDivider(
-                                    color: Colors.black,
+                                    color: Color(0xFF8C824D),
                                     thickness: 1,
                                     width: 10,
                                   ),
@@ -534,7 +534,6 @@ class _HomePageState extends State<HomePage> {
               height: 60,
               decoration: BoxDecoration(
                 color: Color(0xFFD1C37E).withValues(alpha: 0.70),
-                // border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
