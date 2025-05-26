@@ -22,7 +22,7 @@ class WindSpeedPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -132,7 +132,7 @@ class PressurePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -225,7 +225,7 @@ class WavesPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -331,7 +331,7 @@ class AQIPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -442,7 +442,7 @@ class TidePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -550,7 +550,7 @@ class PrecipitationPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -677,7 +677,7 @@ class CloudCoveragePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -790,7 +790,7 @@ class SunsetPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -903,7 +903,7 @@ class SunrisePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -1013,7 +1013,7 @@ class TemperaturePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -1139,7 +1139,7 @@ class UVPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -1250,7 +1250,7 @@ class VisibilityPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background_3_v1.png'),
+            image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),

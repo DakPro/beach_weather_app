@@ -237,7 +237,7 @@ class _HomePageState extends State<HomePage> {
             PageRouteBuilder(
               pageBuilder: (context, animation, secondaryAnimation) => info.pageBuilder(),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                const start = Offset(1.0, 0.0);
+                const start = Offset(0.0, 1.0);
                 const finish = Offset.zero;
                 final t = Tween(begin: start, end: finish).chain(CurveTween(curve: Curves.ease));
                 final offsetAnimation = animation.drive(t);
