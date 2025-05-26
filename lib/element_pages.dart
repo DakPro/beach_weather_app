@@ -35,7 +35,7 @@ class WindSpeedPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -61,7 +61,7 @@ class WindSpeedPage extends StatelessWidget {
                     height: 160,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -91,7 +91,7 @@ class WindSpeedPage extends StatelessWidget {
                   height: 260,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -145,7 +145,7 @@ class PressurePage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -171,7 +171,7 @@ class PressurePage extends StatelessWidget {
                     height: 300,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -238,7 +238,7 @@ class WavesPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -264,7 +264,7 @@ class WavesPage extends StatelessWidget {
                     height: 300,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -299,7 +299,7 @@ class WavesPage extends StatelessWidget {
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 100.0,
-        color: Color(0xFF263644),
+        color: Color(0xFF3A5D68),
         child: Text('Sourced from: McKiernan, M. (2025, March 20). Why small changes in wave height can create big dangers for boaters, rock fishermen, and beachgoers — DECKEE. DECKEE. https://deckee.com/blog/why-small-changes-in-wave-height-can-create-big-dangers-for-boaters-rock-fishermen-and-beachgoers',
           style: TextStyle(
             color: Color(0xFF121418),
@@ -344,7 +344,7 @@ class AQIPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -370,7 +370,7 @@ class AQIPage extends StatelessWidget {
                     height: 500,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -411,7 +411,7 @@ class AQIPage extends StatelessWidget {
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 50.0,
-        color: Color(0xFF263644),
+        color: Color(0xFF3A5D68),
         child: Text('Sourced from: AQI Basics | AirNow.gov. (n.d.). https://www.airnow.gov/aqi/aqi-basics/',
         style: TextStyle(
             color: Color(0xFF121418),
@@ -455,7 +455,7 @@ class TidePage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -481,7 +481,7 @@ class TidePage extends StatelessWidget {
                     height: 500,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -518,7 +518,7 @@ class TidePage extends StatelessWidget {
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 50.0,
-        color: Color(0xFF263644),
+        color: Color(0xFF3A5D68),
         child: Text('Sourced from: Tides. (n.d.). Met Office. https://weather.metoffice.gov.uk/learn-about/weather/oceans/tides',
           style: TextStyle(
             color: Color(0xFF121418),
@@ -563,7 +563,7 @@ class PrecipitationPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -589,7 +589,7 @@ class PrecipitationPage extends StatelessWidget {
                     height: 160,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -619,7 +619,7 @@ class PrecipitationPage extends StatelessWidget {
                   height: 160,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -636,7 +636,7 @@ class PrecipitationPage extends StatelessWidget {
                   height: 160,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -690,7 +690,7 @@ class CloudCoveragePage extends StatelessWidget {
                     height: 60,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -716,7 +716,7 @@ class CloudCoveragePage extends StatelessWidget {
                       height: 150,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Color(0xFF264864).withValues(alpha: 0.8),
+                        color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
@@ -746,7 +746,7 @@ class CloudCoveragePage extends StatelessWidget {
                     height: 260,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -803,7 +803,7 @@ class SunsetPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -829,7 +829,7 @@ class SunsetPage extends StatelessWidget {
                     height: 150,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -859,7 +859,7 @@ class SunsetPage extends StatelessWidget {
                   height: 260,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -916,7 +916,7 @@ class SunrisePage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -942,7 +942,7 @@ class SunrisePage extends StatelessWidget {
                     height: 150,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -972,7 +972,7 @@ class SunrisePage extends StatelessWidget {
                   height: 260,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -1026,7 +1026,7 @@ class TemperaturePage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -1052,7 +1052,7 @@ class TemperaturePage extends StatelessWidget {
                     height: 160,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -1082,7 +1082,7 @@ class TemperaturePage extends StatelessWidget {
                   height: 160,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -1099,7 +1099,7 @@ class TemperaturePage extends StatelessWidget {
                   height: 160,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -1152,7 +1152,7 @@ class UVPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -1178,7 +1178,7 @@ class UVPage extends StatelessWidget {
                     height: 446,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -1218,7 +1218,7 @@ class UVPage extends StatelessWidget {
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 80.0,
-        color: Color(0xFF263644),
+        color: Color(0xFF3A5D68),
         child: Text('Sourced from: The UV index and sunburn risk. (2024, December 5). Cancer Research UK. https://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/the-uv-index-and-sunburn-risk',
           style: TextStyle(
             color: Color(0xFF121418),
@@ -1263,7 +1263,7 @@ class VisibilityPage extends StatelessWidget {
                   height: 60,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
@@ -1289,7 +1289,7 @@ class VisibilityPage extends StatelessWidget {
                     height: 250,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF264864).withValues(alpha: 0.8),
+                      color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
@@ -1319,7 +1319,7 @@ class VisibilityPage extends StatelessWidget {
                   height: 260,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xFF264864).withValues(alpha: 0.8),
+                    color: Color(0xFF75AEB9).withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(

@@ -34,6 +34,7 @@ class WeatherDataStored {
   DateTime current = currentDate;
   DateTime selectedDay = currentDate;
   String suggestion = 'Have a nice day!';
+  String photo = 'assets/sun_1.png';
 }
 
 class MyApp extends StatelessWidget {
@@ -60,6 +61,7 @@ class HomePage extends StatefulWidget {
 
 final DateTime currentDate = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, DateTime.now().hour);
 final List<String> suggestions = ['Great time to go to the beach!', 'Consider going on another day.', 'It is too cold to swim in the sea.', 'It is too hot to stay in the sun.'];
+final List<String> photos = ['assets/sun_1.png', 'assets/cloudy.png', 'assets/rain.png', 'assets/sun_2.png'];
 
 class _HomePageState extends State<HomePage> {
   String _selectedLocationName = 'Cambridge';
@@ -188,12 +190,20 @@ class _HomePageState extends State<HomePage> {
 
     if(WeatherDataStored().temp![WeatherDataStored().current] < 15) {
       WeatherDataStored().suggestion = suggestions[2];
+      if(WeatherDataStored().prec![WeatherDataStored().current] > 5) {
+        WeatherDataStored().photo = photos[2];
+      } else {
+        WeatherDataStored().photo = photos[1];
+      }
     } else if(WeatherDataStored().temp![WeatherDataStored().current] >= 15 && WeatherDataStored().temp![WeatherDataStored().current] < 25) {
       WeatherDataStored().suggestion = suggestions[1];
+      WeatherDataStored().photo = photos[1];
     } else if(WeatherDataStored().temp![WeatherDataStored().current] >= 25 && WeatherDataStored().temp![WeatherDataStored().current] < 35) {
       WeatherDataStored().suggestion = suggestions[0];
+      WeatherDataStored().photo = photos[0];
     } else {
       WeatherDataStored().suggestion = suggestions[3];
+      WeatherDataStored().photo = photos[3];
     }
 
     List<CurrentWeatherInfo> loadedWeatherData = [
@@ -474,7 +484,7 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/sun_drawing.png'),
+                          image: AssetImage(WeatherDataStored().photo),
                           fit: BoxFit.cover,
                         ),
                         border: Border.all(color: Color(0xFFD1C37E)),
