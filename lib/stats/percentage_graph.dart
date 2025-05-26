@@ -11,6 +11,7 @@ class Graph extends StatefulWidget {
   State<Graph> createState() => _GraphState();
 }
 
+// Code adapted from https://github.com/imaNNeo/fl_chart/blob/main/example/lib/presentation/samples/line/line_chart_sample2.dart
 class _GraphState extends State<Graph> {
   TextStyle axisStyle = TextStyle(
     color: Colors.white70,
@@ -59,11 +60,13 @@ class _GraphState extends State<Graph> {
     // Device's current time
     // NOT LOCAL TIME
     // TODO: Convert to local time
+
+    // Get current time and hour
     var now = DateTime.now();
-    var nnow = DateTime.fromMillisecondsSinceEpoch(
+    var now_hour = DateTime.fromMillisecondsSinceEpoch(
       now.millisecondsSinceEpoch - now.millisecondsSinceEpoch % 3600_000,
     );
-    var time = nnow.add(Duration(hours: value.toInt()));
+    var time = now_hour.add(Duration(hours: value.toInt()));
     String text = "${time.hour}:00";
 
     return SideTitleWidget(meta: meta, child: Text(text, style: axisStyle));
@@ -76,11 +79,13 @@ class _GraphState extends State<Graph> {
   }
 
   LineChartData mainData() {
+    // Get current time and hour
     var now = DateTime.now().toUtc();
     var nnow = DateTime.fromMillisecondsSinceEpoch(
       now.millisecondsSinceEpoch - now.millisecondsSinceEpoch % 3600_000,
     );
 
+    // Extract data per hour from now
     var spots = <FlSpot>[];
     for (int i = 0; i < 24; i++) {
       final time = nnow.add(Duration(hours: i));

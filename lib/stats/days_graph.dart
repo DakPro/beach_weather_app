@@ -11,6 +11,7 @@ class DaysGraph extends StatefulWidget {
   State<DaysGraph> createState() => _DaysGraphState();
 }
 
+// Code adapted from https://github.com/imaNNeo/fl_chart/blob/main/example/lib/presentation/samples/line/line_chart_sample2.dart
 class _DaysGraphState extends State<DaysGraph> {
   TextStyle axisStyle = TextStyle(
     color: Colors.white70,
