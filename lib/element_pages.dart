@@ -3,6 +3,8 @@ import 'package:beach_weather_app/stats/percentage_graph.dart';
 import 'package:beach_weather_app/stats/values_graph.dart';
 import 'package:beach_weather_app/stats/days_graph.dart';
 
+// pages for each separate weather condition on the main page
+
 class WindSpeedPage extends StatelessWidget {
   const WindSpeedPage({super.key, required this.speed, required this.current});
   final Map speed;
@@ -16,7 +18,7 @@ class WindSpeedPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -45,6 +47,7 @@ class WindSpeedPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Wind Speed Information',
                     textAlign: TextAlign.center,
@@ -71,6 +74,7 @@ class WindSpeedPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box for additional information and tips
                     child: RichText(
                       text: TextSpan(
                         text: 'Current Wind Speed: ${speed[current].round()} km/h.\n',
@@ -87,6 +91,7 @@ class WindSpeedPage extends StatelessWidget {
                     )
                 ),
                 SizedBox(height: 10),
+                // box containing the graph with wind speeds for the next 24 hours
                 Container(
                   height: 260,
                   alignment: Alignment.center,
@@ -126,7 +131,7 @@ class PressurePage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -155,6 +160,7 @@ class PressurePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'MSL Pressure Information',
                     textAlign: TextAlign.center,
@@ -181,6 +187,7 @@ class PressurePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box for additional information
                     child: RichText(
                       text: TextSpan(
                         text: 'Current MSL Pressure: ${pressure[current].round()} hPa.\n\n',
@@ -219,7 +226,7 @@ class WavesPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -248,6 +255,7 @@ class WavesPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Wave Information',
                     textAlign: TextAlign.center,
@@ -274,6 +282,7 @@ class WavesPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box for additional information
                     child: RichText(
                       text: TextSpan(
                         text: 'Current Wave Height: $waves m.\n\n',
@@ -296,6 +305,7 @@ class WavesPage extends StatelessWidget {
           ],
         ),
       ),
+      // bottom bar containing references to sources
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 100.0,
@@ -325,7 +335,7 @@ class AQIPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -354,6 +364,7 @@ class AQIPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'AQI Information',
                     textAlign: TextAlign.center,
@@ -380,6 +391,7 @@ class AQIPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box for additional information
                     child: RichText(
                       text: TextSpan(
                         text: 'Current AQI: ${index[current].round()}.\n',
@@ -408,6 +420,7 @@ class AQIPage extends StatelessWidget {
           ],
         ),
       ),
+      // bottom bar containing references to sources
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 50.0,
@@ -436,7 +449,7 @@ class TidePage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -465,6 +478,7 @@ class TidePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Tide Information',
                     textAlign: TextAlign.center,
@@ -491,6 +505,7 @@ class TidePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information
                     child: RichText(
                       text: TextSpan(
                         text: 'Current Tide: $tide.\n\n',
@@ -515,6 +530,7 @@ class TidePage extends StatelessWidget {
           ],
         ),
       ),
+      // bottom bar with references to sources
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 50.0,
@@ -544,7 +560,7 @@ class PrecipitationPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -573,6 +589,7 @@ class PrecipitationPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Precipitation Information',
                     textAlign: TextAlign.center,
@@ -599,6 +616,7 @@ class PrecipitationPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information and tips
                     child: RichText(
                       text: TextSpan(
                         text: 'Current Precipitation: ${prec[current].round()} mm.\n',
@@ -615,6 +633,7 @@ class PrecipitationPage extends StatelessWidget {
                     )
                 ),
                 SizedBox(height: 10),
+                // graphs to visualise what the next 24 hours will look like
                 Container(
                   height: 160,
                   alignment: Alignment.center,
@@ -671,7 +690,7 @@ class CloudCoveragePage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -700,6 +719,7 @@ class CloudCoveragePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // title box
                     child: Text(
                       'Cloud Coverage Information',
                       textAlign: TextAlign.center,
@@ -726,6 +746,7 @@ class CloudCoveragePage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      // box with additional information
                       child: RichText(
                         text: TextSpan(
                           text: 'Current Cloud Coverage: ${coverage[current].round()}%.\n',
@@ -742,6 +763,7 @@ class CloudCoveragePage extends StatelessWidget {
                       )
                   ),
                 SizedBox(height: 10),
+                // graphs with cloud coverage information for the next 24 hours
                 Container(
                     height: 260,
                     alignment: Alignment.center,
@@ -784,7 +806,7 @@ class SunsetPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -813,6 +835,7 @@ class SunsetPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Sunset Information',
                     textAlign: TextAlign.center,
@@ -839,6 +862,7 @@ class SunsetPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information and tips
                     child: RichText(
                       text: TextSpan(
                         text: 'Next Sunset: $nextSunset.\n',
@@ -855,6 +879,7 @@ class SunsetPage extends StatelessWidget {
                     )
                 ),
                 SizedBox(height: 10),
+                // graph with sunset times for the next 7 days
                 Container(
                   height: 260,
                   alignment: Alignment.center,
@@ -897,7 +922,7 @@ class SunrisePage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -926,6 +951,7 @@ class SunrisePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Sunrise Information',
                     textAlign: TextAlign.center,
@@ -952,6 +978,7 @@ class SunrisePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information
                     child: RichText(
                       text: TextSpan(
                         text: 'Next Sunrise: $nextSunrise.\n',
@@ -968,6 +995,7 @@ class SunrisePage extends StatelessWidget {
                     )
                 ),
                 SizedBox(height: 10),
+                // graph displaying sunrise times for the next 7 days
                 Container(
                   height: 260,
                   alignment: Alignment.center,
@@ -1007,7 +1035,7 @@ class TemperaturePage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -1036,6 +1064,7 @@ class TemperaturePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Temperature Information',
                     textAlign: TextAlign.center,
@@ -1062,6 +1091,7 @@ class TemperaturePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information and tips
                     child: RichText(
                       text: TextSpan(
                         text: 'Current Temperature: ${temp[current].round()}°C.\nApparent Temperature: ${atemp[current].round()}°C.\n',
@@ -1078,6 +1108,7 @@ class TemperaturePage extends StatelessWidget {
                     )
                 ),
                 SizedBox(height: 10),
+                // graphs with temperature and apparent temperature data for the next 24 hours
                 Container(
                   height: 160,
                   alignment: Alignment.center,
@@ -1133,7 +1164,7 @@ class UVPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -1162,6 +1193,7 @@ class UVPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'UV Information',
                     textAlign: TextAlign.center,
@@ -1188,6 +1220,7 @@ class UVPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information and health and safety tips
                     child: RichText(
                       text: TextSpan(
                         text: 'Current UV Index: $uv.\n',
@@ -1215,6 +1248,7 @@ class UVPage extends StatelessWidget {
           ],
         ),
       ),
+      // bottom bar with references to sources
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         height: 80.0,
@@ -1244,7 +1278,7 @@ class VisibilityPage extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(),
+        leading: BackButton(), // back button at the top of the page
       ),
       extendBodyBehindAppBar: true,
       body: Container(
@@ -1273,6 +1307,7 @@ class VisibilityPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // title box
                   child: Text(
                     'Visibility Information',
                     textAlign: TextAlign.center,
@@ -1299,6 +1334,7 @@ class VisibilityPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // box with additional information
                     child: RichText(
                       text: TextSpan(
                         text: 'Current Visibility: ${(vis[current] / 1000).round()} km.\n',
@@ -1315,6 +1351,7 @@ class VisibilityPage extends StatelessWidget {
                     )
                 ),
                 SizedBox(height: 10),
+                // graph showing visibility information for the next 24 hours
                 Container(
                   height: 260,
                   alignment: Alignment.center,

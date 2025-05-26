@@ -13,7 +13,7 @@ void main() {
   runApp(const MyApp());
 }
 
-class WeatherDataStored {
+class WeatherDataStored { // global singleton class for storage and retrieval of weather information
   static final WeatherDataStored _instance = WeatherDataStored._internal();
   factory WeatherDataStored() { return _instance; }
   WeatherDataStored._internal();
@@ -64,6 +64,7 @@ final List<String> suggestions = ['Great time to go to the beach!', 'Consider go
 final List<String> photos = ['assets/sun_1.png', 'assets/cloudy.png', 'assets/rain.png', 'assets/sun_2.png'];
 
 class _HomePageState extends State<HomePage> {
+  // default data to be displayed if the API can't be accessed / no other location is selected
   String _selectedLocationName = 'Cambridge';
   OpenMeteo? openMeteo;
   List<CurrentWeatherInfo>? weatherData;
@@ -87,16 +88,19 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     weatherData = tempWeatherData;
-    loadWeatherData(52.12, 0.07); // Cambridge coordinates
+    loadWeatherData(52.12, 0.07); // Cambridge coordinates for the default location
     _loadOrder();
     _generateDayLabels();
     loadInitialLocation();
   }
 
   Future<void> loadWeatherData(double lat, double lon) async {
+    // attempt to access the weather API and update weather information whenever the user
+    // wants to see information for a new location or different day
     OpenMeteo data = await initOpenMeteo(lon, lat);
     openMeteo = data;
 
+    // functions for fetching data from the API (returning maps for each weather condition when those become available)
     Future<Map<DateTime, num>> waitForAQIData() async {
       while (openMeteo == null || openMeteo!.getAQI().isEmpty) {
         await Future.delayed(Duration(milliseconds: 200));
@@ -174,6 +178,7 @@ class _HomePageState extends State<HomePage> {
       return openMeteo!.getSunrise();
     }
 
+    // add the current correct weather data to the single instance storage class
     Map AQIdata = await waitForAQIData(), tData = await waitForTData(), apparentTData = await waitForATData(), pressureData = await waitForPressureData(), precipitationData = await waitForPrecData(), pProbData = await waitForPProbData(), ccData = await waitForCCData(), visData = await waitForVisData(), windSpeedData = await waitForWSData();
     List sunriseData = await waitForSunriseData(), sunsetData = await waitForSunsetData();
     WeatherDataStored().AQI = AQIdata;
@@ -188,6 +193,7 @@ class _HomePageState extends State<HomePage> {
     WeatherDataStored().sunrise = sunriseData;
     WeatherDataStored().sunset = sunsetData;
 
+    // conditional statements to choose which suggestion and image to display on the main page
     if(WeatherDataStored().temp![WeatherDataStored().current] < 15) {
       WeatherDataStored().suggestion = suggestions[2];
       if(WeatherDataStored().prec![WeatherDataStored().current] > 5) {
@@ -206,6 +212,7 @@ class _HomePageState extends State<HomePage> {
       WeatherDataStored().photo = photos[3];
     }
 
+    // update values displayed on the main page's grid and pass the correct maps to the element pages
     List<CurrentWeatherInfo> loadedWeatherData = [
       CurrentWeatherInfo(pageBuilder: () => WavesPage(waves: WeatherDataStored().waveHeight?[0]), label: 'Waves', icon: Icons.tsunami, value: '${WeatherDataStored().waveHeight?[WeatherDataStored().selectedDay.difference(WeatherDataStored().current).inDays]} m'),
       CurrentWeatherInfo(pageBuilder: () => PrecipitationPage(prec: precipitationData, precp: pProbData, current: WeatherDataStored().current), label: 'Precipitation', icon: Icons.water_drop, value: '${pProbData[WeatherDataStored().selectedDay].round()}%'),
@@ -226,6 +233,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // grid for displaying each weather condition for some selected day
   List<Widget> get infoGrid => List.generate(
     weatherData!.length,
         (index) {
@@ -418,6 +426,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
+                  // search bar displaying location and used to access a separate location search page
                 ),
               ),
             ),
@@ -475,6 +484,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         )
                     ),
+                    // box for displaying the most relevant weather information at the current moment
+                    // for the user (temperature, UV, water temperature and precipitations)
                   ),
                   SizedBox(width: 20),
                   Flexible(
@@ -484,7 +495,7 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(WeatherDataStored().photo),
+                          image: AssetImage(WeatherDataStored().photo), // displays the appropriate photo based on current weather conditions
                           fit: BoxFit.cover,
                         ),
                         border: Border.all(color: Color(0xFFD1C37E)),
@@ -518,7 +529,7 @@ class _HomePageState extends State<HomePage> {
                     child: Icon(Icons.try_sms_star_rounded, color: Color(0xFF5B5431)),
                   ),
                   Text(
-                    WeatherDataStored().suggestion,
+                    WeatherDataStored().suggestion, // suggestion box displays one of the predetermined suggestions based on current weather conditions
                     style: TextStyle(
                       color: Color(0xFF5B5431),
                       fontSize: 20,
@@ -530,7 +541,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             SizedBox(
               height: 140,
-              child: ListView.builder(
+              child: ListView.builder( // carousel view for selecting one of the next 7 days to see weather conditions
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 itemCount: dayLabels.length,
@@ -575,7 +586,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 20),
-            Padding(
+            Padding( // reorderable grid with all weather conditions
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: ReorderableWrap(
                 alignment: WrapAlignment.center,
