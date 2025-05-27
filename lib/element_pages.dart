@@ -30,7 +30,7 @@ class WindSpeedPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -143,7 +143,7 @@ class PressurePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -190,7 +190,7 @@ class PressurePage extends StatelessWidget {
                     // box for additional information
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current MSL Pressure: ${pressure[current].round()} hPa.\n\n',
+                        text: 'Current MSL Pressure: ${pressure[current].round()} hPa.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -238,7 +238,7 @@ class WavesPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -285,7 +285,7 @@ class WavesPage extends StatelessWidget {
                     // box for additional information
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current Wave Height: $waves m.\n\n',
+                        text: 'Current Wave Height: $waves m.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -347,7 +347,7 @@ class AQIPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -378,7 +378,7 @@ class AQIPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                     padding: const EdgeInsets.all(12.0),
-                    height: 500,
+                    height: 470,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -461,7 +461,7 @@ class TidePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -492,7 +492,7 @@ class TidePage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                     padding: const EdgeInsets.all(12.0),
-                    height: 500,
+                    height: 450,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -508,7 +508,7 @@ class TidePage extends StatelessWidget {
                     // box with additional information
                     child: RichText(
                       text: TextSpan(
-                        text: 'Current Tide: $tide.\n\n',
+                        text: 'Current Tide: $tide.\n',
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.5,
@@ -572,7 +572,7 @@ class PrecipitationPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -702,7 +702,7 @@ class CloudCoveragePage extends StatelessWidget {
         ),
           child: Column(
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: 60),
               Padding(padding: const EdgeInsets.all(8.0),
                 child: Column(children: [
                   Container(
@@ -818,7 +818,7 @@ class SunsetPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -934,7 +934,7 @@ class SunrisePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -1047,7 +1047,7 @@ class TemperaturePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -1176,7 +1176,7 @@ class UVPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
@@ -1207,7 +1207,7 @@ class UVPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                     padding: const EdgeInsets.all(12.0),
-                    height: 446,
+                    height: 426,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -1290,7 +1290,7 @@ class VisibilityPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 Container(
