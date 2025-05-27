@@ -721,7 +721,7 @@ class CloudCoveragePage extends StatelessWidget {
                     ),
                     // title box
                     child: Text(
-                      'Cloud Coverage Information',
+                      'Cloud Cover Information',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color(0xFF122428),
