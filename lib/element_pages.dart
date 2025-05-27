@@ -1112,7 +1112,8 @@ class TemperaturePage extends StatelessWidget {
                 SizedBox(height: 10),
                 // graphs with temperature and apparent temperature data for the next 24 hours
                 Container(
-                  height: 160,
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  height: 250,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -1129,7 +1130,8 @@ class TemperaturePage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  height: 160,
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  height: 250,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
