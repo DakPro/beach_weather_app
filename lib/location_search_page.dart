@@ -3,6 +3,7 @@ import 'package:beach_weather_app/location_services.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'location_services.dart';
 
 class LocationSearchPage extends StatefulWidget {
   const LocationSearchPage({super.key});
@@ -12,8 +13,8 @@ class LocationSearchPage extends StatefulWidget {
 }
 
 class _LocationSearchPageState extends State<LocationSearchPage> {
+  List<MapEntry<String,double>> closestBeaches = [];
   List<String> recentSearches = [];
-  List<String> suggestions = [];
   String query = '';
   late TextEditingController _controller;
 
@@ -21,7 +22,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
   void initState() {
     super.initState();
     _controller = TextEditingController();
-    loadRecentSearches();
+    loadClosestBeaches();
   }
 
   @override
@@ -30,41 +31,20 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
     super.dispose();
   }
 
-  void fetchSuggestions(String input) {
-    if (input.isEmpty) {
-      setState(() {
-        suggestions = [];
-      });
-      return;
-    }
-    List<String> matched = beachesLocation
-        .keys
-        .where((location) => location.toLowerCase().contains(input.toLowerCase()))
-        .toList();
-
-    setState(() {
-      suggestions = matched;
-    });
-  }
-
   void saveSearch(String search) async {
+    if(!beachesLocation.containsKey(search)) return;
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    recentSearches.remove(search);
-    recentSearches.insert(0, search);
-    if (recentSearches.length > 5) {
-      recentSearches = recentSearches.sublist(0, 5);
-    }
-    await prefs.setStringList('recent_searches', recentSearches);
+    MapEntry<String,double> beach = MapEntry<String,double>(search, await currentDistanceTo(beachesLocation[search]!));
+    closestBeaches.remove(beach);
+    closestBeaches.insert(0, beach);
+    await prefs.setStringList('recent_searches', closestBeaches.map((e) => e.key).toList());
   }
 
-  void loadRecentSearches() async {
+  void loadClosestBeaches() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String>? stored = prefs.getStringList('recent_searches');
-    if (stored != null) {
-      setState(() {
-        recentSearches = stored;
-      });
-    }
+    var orderedBeaches = orderBeachesByDistance(await getCurrentLocation());
+    setState((){closestBeaches = orderedBeaches;});
   }
 
   void updateToCurrentLocation() async {
@@ -80,10 +60,6 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
         _controller.text = nearestBeach;
         _controller.selection = TextSelection.fromPosition(
             TextPosition(offset: _controller.text.length));
-        setState(() {
-          query = nearestBeach;
-          suggestions = []; // Clear suggestions after setting the text
-        });
         FocusScope.of(context).unfocus(); // Dismiss keyboard
         saveSearch(nearestBeach);
         Navigator.pop(context, nearestBeach); // Navigate back with the selected beach
@@ -144,7 +120,6 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                     setState(() {
                       query = value;
                     });
-                    fetchSuggestions(value);
                   },
                 ),
               ),
@@ -157,29 +132,34 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                 borderRadius: BorderRadius.circular(10),
               ),
               constraints: BoxConstraints(
-                maxHeight: min((query.isEmpty ? recentSearches.length : suggestions.length) * 60.0, MediaQuery.of(context).size.height * 0.70),
+                maxHeight: min(closestBeaches.length * 60.0, MediaQuery.of(context).size.height * 0.70),
               ),
               child: ListView.separated(
                 shrinkWrap: true,
-                itemCount: query.isEmpty ? recentSearches.length : suggestions.length,
+                itemCount: closestBeaches.length,
                 separatorBuilder: (context, index) => Divider(height: 5, color: Color(0xFF3F8D8D)),
                 itemBuilder: (context, index) {
-                  final text = query.isEmpty ? recentSearches[index] : suggestions[index];
-                  return ListTile(
-                    title: Text(text),
-                    onTap: () {
-                      // _controller.text = text;
-                      // _controller.selection = TextSelection.fromPosition(
-                      //     TextPosition(offset: _controller.text.length));
-                      // setState(() {
-                      //   query = text;
-                      //   suggestions = [];
-                      // });
-                      FocusScope.of(context).unfocus();
-                      saveSearch(text);
-                      Navigator.pop(context, text);
-                    },
-                  );
+                  final text = closestBeaches[index].key;
+                  final distance = '${(closestBeaches[index].value / 1000).toStringAsFixed(2)} km';
+                  return
+                    ListTile(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [Text(text), Text(distance)],
+                      ),
+                      onTap: () {
+                        // _controller.text = text;
+                        // _controller.selection = TextSelection.fromPosition(
+                        //     TextPosition(offset: _controller.text.length));
+                        // setState(() {
+                        //   query = text;
+                        //   suggestions = [];
+                        // });
+                        FocusScope.of(context).unfocus();
+                        saveSearch(text);
+                        Navigator.pop(context, text);
+                      },
+                    );
                 },
               ),
             ),

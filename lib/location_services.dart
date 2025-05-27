@@ -13,6 +13,11 @@ class LatLong {
   LatLong(this.latitude, this.longitude);
 }
 
+Future<double> currentDistanceTo(LatLong pos) async {
+  var location = await getCurrentLocation();
+  return Geolocator.distanceBetween(pos.latitude, pos.longitude,location.latitude, location.longitude);
+}
+
 final Map<String, LatLong> beachesLocation = {
   "Wells-next-the-sea beach": new LatLong(52.973617, 0.850709),
   "Southwold beach": new LatLong(52.329237,1.684303),
@@ -139,3 +144,13 @@ String? findNearestBeach(double currentLat, double currentLon, Map<String, LatLo
   return nearestBeachName;
 }
 
+List<MapEntry<String, double>> orderBeachesByDistance(LatLong currentPos){
+  Map<String, double> beachesDistances = {
+    for (var entry in beachesLocation.entries)
+      entry.key: Geolocator.distanceBetween(entry.value.latitude, entry.value.longitude,
+          currentPos.latitude, currentPos.longitude)
+  };
+  var sortedEntries = beachesDistances.entries.toList()
+    ..sort((a, b) => a.value.compareTo(b.value));
+  return sortedEntries;
+}
