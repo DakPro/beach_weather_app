@@ -635,7 +635,7 @@ class PrecipitationPage extends StatelessWidget {
                 SizedBox(height: 10),
                 // graphs to visualise what the next 24 hours will look like
                 Container(
-                  height: 250,
+                  height: 160,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -653,7 +653,7 @@ class PrecipitationPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  height: 250,
+                  height: 160,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -1113,7 +1113,7 @@ class TemperaturePage extends StatelessWidget {
                 // graphs with temperature and apparent temperature data for the next 24 hours
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  height: 250,
+                  height: 160,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -1131,7 +1131,7 @@ class TemperaturePage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  height: 250,
+                  height: 160,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
