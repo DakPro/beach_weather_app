@@ -7,7 +7,6 @@ import 'location_search_page.dart';
 import 'location_services.dart';
 import 'element_pages.dart';
 import 'data_models.dart';
-import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -91,8 +90,6 @@ class _HomePageState extends State<HomePage> {
     loadWeatherData(52.12, 0.07); // Cambridge coordinates for the default location
     _loadOrder();
     _generateDayLabels();
-    print(WeatherDataStored().sunset);
-    print(WeatherDataStored().sunrise);
     loadInitialLocation();
   }
 
