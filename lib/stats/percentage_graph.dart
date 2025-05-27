@@ -136,7 +136,7 @@ class _GraphState extends State<Graph> {
         leftTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
-            interval: 20,
+            interval: 25,
             getTitlesWidget: leftTitleWidgets,
             reservedSize: 42,
             maxIncluded: false,
