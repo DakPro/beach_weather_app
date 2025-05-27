@@ -1,9 +1,7 @@
-import 'package:beach_weather_app/metadata_manager.dart';
 import 'package:beach_weather_app/location_services.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'location_services.dart';
 
 class LocationSearchPage extends StatefulWidget {
   const LocationSearchPage({super.key});
@@ -44,7 +42,12 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
   void loadClosestBeaches() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var orderedBeaches = orderBeachesByDistance(await getCurrentLocation());
-    setState((){closestBeaches = orderedBeaches;});
+    // Filter beaches based on the query
+    if (query.isNotEmpty) {
+      orderedBeaches = orderedBeaches.where((beach) => beach.key.toLowerCase().contains(query.toLowerCase())).toList();
+    }
+    setState((){closestBeaches = orderedBeaches;
+    });
   }
 
   void updateToCurrentLocation() async {
@@ -119,6 +122,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                   onChanged: (value) {
                     setState(() {
                       query = value;
+                      loadClosestBeaches(); // Reload beaches when query changes
                     });
                   },
                 ),
@@ -131,7 +135,7 @@ class _LocationSearchPageState extends State<LocationSearchPage> {
                 color: Color(0xFFB7DFDF).withValues(alpha: 0.70),
                 borderRadius: BorderRadius.circular(10),
               ),
-              constraints: BoxConstraints(
+              constraints: BoxConstraints( // Ensure this is not constraining to 0 or a very small number
                 maxHeight: min(closestBeaches.length * 60.0, MediaQuery.of(context).size.height * 0.70),
               ),
               child: ListView.separated(
