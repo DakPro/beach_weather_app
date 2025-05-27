@@ -73,7 +73,7 @@ class _DaysGraphState extends State<DaysGraph> {
     int m = ((value - h) * 60).round();
     String text = '${h.toString().padLeft(2, '0')}:${m.toString().padLeft(2, '0')}';
 
-    return Text(text, style: axisStyle, textAlign: TextAlign.left);
+    return Text(text, style: axisStyle.copyWith(fontSize: 12), textAlign: TextAlign.left);
   }
 
   LineChartData mainData() {
@@ -129,7 +129,7 @@ class _DaysGraphState extends State<DaysGraph> {
             showTitles: true,
             interval: 0.1,
             getTitlesWidget: leftTitleWidgets,
-            reservedSize: 52,
+            reservedSize: 44,
             maxIncluded: false,
             minIncluded: false,
           ),
