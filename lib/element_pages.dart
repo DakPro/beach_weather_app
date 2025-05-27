@@ -564,13 +564,15 @@ class PrecipitationPage extends StatelessWidget {
       ),
       extendBodyBehindAppBar: true,
       body: Container(
+        constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/background_1_v2.png'),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill
           ),
         ),
-        child: Column(
+        child: SingleChildScrollView(child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
@@ -603,7 +605,7 @@ class PrecipitationPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                     padding: const EdgeInsets.all(12.0),
-                    height: 160,
+                    height: 250,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -635,7 +637,7 @@ class PrecipitationPage extends StatelessWidget {
                 SizedBox(height: 10),
                 // graphs to visualise what the next 24 hours will look like
                 Container(
-                  height: 160,
+                  height: 250,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -653,7 +655,7 @@ class PrecipitationPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  height: 160,
+                  height: 250,
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -673,7 +675,7 @@ class PrecipitationPage extends StatelessWidget {
               ),
             ),
           ],
-        ),
+        ),),
       ),
     );
   }
@@ -1041,13 +1043,14 @@ class TemperaturePage extends StatelessWidget {
       ),
       extendBodyBehindAppBar: true,
       body: Container(
+        constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/background_1_v2.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child: SingleChildScrollView(child: Column(
           children: [
             SizedBox(height: 60),
             Padding(padding: const EdgeInsets.all(8.0),
@@ -1113,7 +1116,7 @@ class TemperaturePage extends StatelessWidget {
                 // graphs with temperature and apparent temperature data for the next 24 hours
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  height: 160,
+                  height: 250,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -1131,7 +1134,7 @@ class TemperaturePage extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  height: 160,
+                  height: 250,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -1151,7 +1154,7 @@ class TemperaturePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 } // DONE
