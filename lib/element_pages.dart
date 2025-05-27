@@ -635,7 +635,7 @@ class PrecipitationPage extends StatelessWidget {
                 SizedBox(height: 10),
                 // graphs to visualise what the next 24 hours will look like
                 Container(
-                  height: 160,
+                  padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),
@@ -652,7 +652,7 @@ class PrecipitationPage extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  height: 160,
+                  padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Color(0xFF75AEB9).withValues(alpha: 0.8),

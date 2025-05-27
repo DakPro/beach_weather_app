@@ -32,7 +32,7 @@ class _DaysGraphState extends State<DaysGraph> {
             padding: const EdgeInsets.only(
               right: 14,
               left: 14,
-              top: 36,
+              top: 40,
               bottom: 12,
             ),
             child: LineChart(mainData()),
